@@ -2,10 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import TextBtn from '../../../components/case/TextBtn'
-import Question from '../../../components/case/Question'
-import Footer from "../../../components/global/Footer";
-import ProductBtn from "../../../components/case/ProductBtn";
+import { TextBtn, Question, ProductBtn, Footer } from '../../../components';
 import TEAM_1_PROUDCT from "@/app/constants/1/productData";
 
 

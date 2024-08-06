@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FolderIcon } from "@heroicons/react/24/solid";
-import styles from '../../app/styles.module.css'
+import styles from '../../styles.module.css'
 
 interface TeamProps {
     name: string;

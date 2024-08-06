@@ -1,6 +1,6 @@
 import { FolderIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import styles from '../app/styles.module.css';
+import styles from '../styles.module.css'
 
 interface FolderProps {
     link: string;
