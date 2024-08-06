@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, Footer } from '../../../components';
 import TEAM_1_PROUDCT from "@/app/constants/1/productData";
 import BackBtn from "@/app/components/case/BackBtn";
+import Correct from "@/app/components/case/Correct";
+import Wrong from "@/app/components/case/Wrong";
 
 
 export default function Case1() {
@@ -97,13 +99,36 @@ export default function Case1() {
     }
   ]
 
+  const productChooseResult = [
+    
+      "Coldaewon Cold-Q Syrup includes caffeine anhydride which the patient does not prefer.\n"+
+      "In addition, caffeine anhydride inhibits iron absorption when taking iron supplements.\n"+
+      "It is recommended to have a 2 hour interval between taking the syrup and the iron supplement.\n"+
+      "This should be the last option."
+    ,
+ 
+      "Coldaewon Kids Cold Syrup contains acetaminophen, chlorpheniramine, dextromethorphan, methylephedrine, and guaiphenesin which has the following effects:\n"+
+      "- Acetaminophen : suitable for curing headaches and fever.\n"+
+      "- Chlorpheniramine : suitable for curing a runny nose.\n"+
+      "- Methylephedrine : suitable for curing a stuffy nose.\n"+
+      "- Dextromethorphan, guaiphenesin : suitable for curing cough.\n"+
+      "(Since it is a Kids syrup, adults should take higher doses.)"
+
+    ,
+    "Coldaewon Kidsfen Syrup is mainly used to reduce fever\n and might not cover all the patients’ symptoms such as coughing, runny and stuffy nose."
+    ,
+    "Coldaewon Kids Ibufen Syrup contains ibuprofen which is unsuitable to take together with dexibuprofen(dental medication),\nresulting in the overdose of NSAIDs."
+    
+
+  ]
+
   // console.log("length: ",script.length)
 
   useEffect(() => {
     const timer1 = setTimeout(() => {
       setFlag(0, false);
       setFlag(1, true);
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearTimeout(timer1);
@@ -536,86 +561,37 @@ export default function Case1() {
           </div>
         </div>
       ) : null}
-      {/* {flag7 ? (
-        <>
-          <div className="fixed w-full h-screen bg-[#00A700] opacity-20 -z-10" />
-          <div className="flex flex-col items-center justify-center w-[60%] h-48 bg-white opacity-90 rounded-lg mt-24">
-            <span>You are correct!</span>
-            <span>
-              Children should use Lactulose, which is non-irritating and
-              non-swelling.
-            </span>
-            <span>The syrup formulation is also suitable for children.</span>
-            <Image
-              src="/correct.png"
-              alt="correct"
-              width={200}
-              height={100}
-              className="absolute left-[15%]"
-            />
-          </div>
-          <button
-            onClick={onClick9}
-            className="w-60 h-10 bg-gray-300 rounded-full shadow-lg mt-12"
-          >
-            <span className="text-lg text-white">Go to Patient Consult</span>
-          </button>
-        </>
+      {flags[18] ? (
+        <Wrong 
+          text={productChooseResult[1]} 
+          handleClick={() => {
+            setFlag(17, true);  // 약품 선택 페이지
+            setFlag(18, false);   
+          }}
+        />
       ) : null}
-    {flag8 ? (
-        <>
-          <div className="fixed w-full h-screen bg-[#FF0017] opacity-20 -z-10" />
-          <div className="flex flex-col items-center justify-center w-[60%] h-48 bg-white opacity-90 rounded-lg mt-24">
-            <span>
-              Bisacodyl is a Stimulant laxative which is unsuitable for child.
-            </span>
-            <span>
-              I&apos;m not sure a 7 years old child can swallow enteric-coated
-              tablets too.
-            </span>
-            <span>Please try again!</span>
-            <Image
-              src="/wrong.png"
-              alt="wrong"
-              width={200}
-              height={100}
-              className="absolute left-[15%]"
-            />
-          </div>
-          <button
-            onClick={onClick7}
-            className="w-60 h-10 bg-gray-300 rounded-full shadow-lg mt-12"
-          >
-            <span className="text-lg text-white">Try again</span>
-          </button>
-        </>
+      {flags[19] ? (
+        <Correct text={productChooseResult[0]} handleClick={() => handleClick(18)}/>
       ) : null}
-      {flag9 ? (
-        <>
-          <div className="fixed w-full h-screen bg-[#FF0017] opacity-20 -z-10" />
-          <div className="flex flex-col items-center justify-center w-[60%] h-48 bg-white opacity-90 rounded-lg mt-24">
-            <span>
-              Psyllium Husk is a Bulk-forming laxative which is unsuitable for
-              child.
-            </span>
-            <span>Please try again!</span>
-            <Image
-              src="/wrong.png"
-              alt="wrong"
-              width={200}
-              height={100}
-              className="absolute left-[15%]"
-            />
-          </div>
-          <button
-            onClick={onClick8}
-            className="w-60 h-10 bg-gray-300 rounded-full shadow-lg mt-12"
-          >
-            <span className="text-lg text-white">Try again</span>
-          </button>
-        </>
+      {flags[20] ? (
+        <Wrong 
+        text={productChooseResult[2]} 
+        handleClick={() => {
+          setFlag(17, true);  // 약품 선택 페이지
+          setFlag(20, false);   
+        }}
+      />
       ) : null}
-      {flag10 ? (
+      {flags[21] ? (
+        <Wrong 
+        text={productChooseResult[2]} 
+        handleClick={() => {
+          setFlag(17, true);  // 약품 선택 페이지
+          setFlag(21, false);   
+        }}
+      />
+      ) : null}
+       {/*{flag10 ? (
         <>
           <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90">
             <span className="text-xl text-gray-500">

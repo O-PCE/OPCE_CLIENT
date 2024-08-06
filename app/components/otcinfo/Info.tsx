@@ -58,7 +58,7 @@ function Info({
 
 
       {/* 각 약품을 for 문으로 */}
-      <div className="flex flex-row w-[75%] justify-between mt-14">
+      <div className="flex flex-row w-[75%] justify-between mt-5">
         {products.map((product, index) => (
           <Product
             key={index}
