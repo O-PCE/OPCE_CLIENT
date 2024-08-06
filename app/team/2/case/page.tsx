@@ -3,8 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Button from './components/Button'
-
 
 export default function Case1() {
   const [flag1, setFlag1] = useState(true);
@@ -54,14 +52,6 @@ export default function Case1() {
   const [flag45, setFlag45] = useState(false);
   const [flag46, setFlag46] = useState(false);
   const [flag47, setFlag47] = useState(false);
-
-const array = new Array(46).fill(false);
-const newArray = [true, ...array];
-const [steps, setSteps] = useState(newArray);
-
-const step = steps.findIndex((index) => steps[index] === true);
-
-
   useEffect(() => {
     const timer1 = setTimeout(() => {
       setFlag1(false);
@@ -75,7 +65,6 @@ const step = steps.findIndex((index) => steps[index] === true);
       clearTimeout(timer2);
     };
   }, []);
-
   const onClick1 = () => {
     setFlag2(false);
     setFlag3(false);
@@ -315,7 +304,6 @@ const step = steps.findIndex((index) => steps[index] === true);
   const [selectedItems1, setselectedItems1] = useState<number[]>([]);
   const handleCheckbox1 = (idx: number) => {
     setselectedItems1((prev) => {
-      // prev = []
       if (prev.includes(idx)) {
         return prev.filter((i) => i !== idx);
       } else {
@@ -447,9 +435,9 @@ const step = steps.findIndex((index) => steps[index] === true);
         objectPosition="center"
         className="-z-10"
       />
-      <Link href="/case-select" className="fixed left-10 top-10">
+      <Link href="/team/2/otc-info" className="fixed left-10 top-10">
         <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
-          <span className="text-white">Go Back to Select Case</span>
+          <span className="text-white">Go Back to Info Page</span>
         </div>
       </Link>
       <div className="fixed left-3 bottom-56">
@@ -460,10 +448,10 @@ const step = steps.findIndex((index) => steps[index] === true);
           height={100}
           className="fixed left-0"
         />
-      </div> 
+      </div>
       {flag1 ? (
         <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 fixed bottom-[15%]">
-          <span className="text-xl text-gray-500">q</span>
+          <span className="text-xl text-gray-500">(Patient walks in...)</span>
         </div>
       ) : null}
       {flag2 ? (
@@ -474,7 +462,14 @@ const step = steps.findIndex((index) => steps[index] === true);
         </div>
       ) : null}
       {flag3 ? (
-        <Button text={"Ask why the patient visited the pharmacy.111"} handleClick={onClick1} />
+        <button
+          onClick={onClick1}
+          className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-24 shadow-lg rounded-lg"
+        >
+          <span className="text-gray-600 text-lg">
+            Ask why the patient visited the pharmacy.
+          </span>
+        </button>
       ) : null}
       {flag4 ? (
         <>

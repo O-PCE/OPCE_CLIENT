@@ -3,3 +3,18 @@
   background-size: cover;
   background-position: center;
 }
+
+.fixed-folder-size-div {
+  width: 200px; /* Set fixed width */
+  height: 150px; /* Set fixed height */
+}
+
+.spacing {
+  display: inline-block; /* Allows height and padding to be applied */
+  height: 30px;          /* Adjust height as needed */
+}
+
+.whitespace-pre-line {
+  white-space: pre-line; /* Preserve line breaks and wrap text */
+  padding-left: 100em;
+}

@@ -1,23 +1,27 @@
-interface ButtonProps {
+interface TextBtnProps {
     text: string;
     handleClick: () => void;
 }
 
-function Button({ 
+const gradientStyle = {
+  background: 'linear-gradient(1.28deg, #FFFFFF 1.09%, #D8E4D8 98.91%)',
+};
+
+function TextBtn({ 
   text,
   handleClick,  
-}: ButtonProps) {
+}: TextBtnProps) {
     return (
         <button
           onClick={handleClick}
           className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-24 shadow-lg rounded-lg"
+          style={gradientStyle}
         >
-          <span className="text-gray-600 text-lg">
-            {/* Ask why the patient visited the pharmacy. */}
+          <span className="text-gray-600 text-lg whitespace-pre-line">
             { text }
           </span>
         </button>
     )
 }
 
-export default Button;
+export default TextBtn;

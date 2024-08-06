@@ -1,430 +1,464 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { TextBtn, Question, ProductBtn, Footer } from '../../../components';
+import TEAM_1_PROUDCT from "@/app/constants/1/productData";
+
 
 export default function Case1() {
-  const [flag1, setFlag1] = useState(true);
-  const [flag2, setFlag2] = useState(false);
-  const [flag3, setFlag3] = useState(false);
-  const [flag4, setFlag4] = useState(false);
-  const [flag5, setFlag5] = useState(false);
-  const [flag6, setFlag6] = useState(false);
-  const [flag7, setFlag7] = useState(false);
-  const [flag8, setFlag8] = useState(false);
-  const [flag9, setFlag9] = useState(false);
-  const [flag10, setFlag10] = useState(false);
-  const [flag11, setFlag11] = useState(false);
-  const [flag12, setFlag12] = useState(false);
-  const [flag13, setFlag13] = useState(false);
-  const [flag14, setFlag14] = useState(false);
-  const [flag15, setFlag15] = useState(false);
-  const [flag16, setFlag16] = useState(false);
-  const [flag17, setFlag17] = useState(false);
-  const [flag18, setFlag18] = useState(false);
-  const [flag19, setFlag19] = useState(false);
-  const [flag20, setFlag20] = useState(false);
-  const [flag21, setFlag21] = useState(false);
-  const [flag22, setFlag22] = useState(false);
-  const [flag23, setFlag23] = useState(false);
-  const [flag24, setFlag24] = useState(false);
-  const [flag25, setFlag25] = useState(false);
-  const [flag26, setFlag26] = useState(false);
-  const [flag27, setFlag27] = useState(false);
-  const [flag28, setFlag28] = useState(false);
-  const [flag29, setFlag29] = useState(false);
-  const [flag30, setFlag30] = useState(false);
-  const [flag31, setFlag31] = useState(false);
-  const [flag32, setFlag32] = useState(false);
-  const [flag33, setFlag33] = useState(false);
-  const [flag34, setFlag34] = useState(false);
-  const [flag35, setFlag35] = useState(false);
-  const [flag36, setFlag36] = useState(false);
-  const [flag37, setFlag37] = useState(false);
-  const [flag38, setFlag38] = useState(false);
-  const [flag39, setFlag39] = useState(false);
-  const [flag40, setFlag40] = useState(false);
-  const [flag41, setFlag41] = useState(false);
-  const [flag42, setFlag42] = useState(false);
-  const [flag43, setFlag43] = useState(false);
-  const [flag44, setFlag44] = useState(false);
-  const [flag45, setFlag45] = useState(false);
-  const [flag46, setFlag46] = useState(false);
-  const [flag47, setFlag47] = useState(false);
+
+  const array = new Array(46).fill(false);
+  const newArray = [true, ...array];
+  const [flags, setFlags] = useState(newArray);
+
+  // Example function to update a specific flag
+  const setFlag = (index: number, value: boolean) => {
+    setFlags(prevFlags => {
+      const newFlags = [...prevFlags];
+      newFlags[index] = value;
+      return newFlags;
+    });
+  };
+
+  interface Script {
+    question: string;
+    answer: string;
+  }
+
+  const script: Script[] = [
+    {
+      question: "Me(pharmacist): Hi, how are you? How can I help you?",
+      answer: 
+        "Patient: I seem to have caught a cold after returning from abroad a few days ago.\n"+
+        "I have a headache and high fever.\n"+
+        "I am also suffering from a severe cough, runny nose and stuffy nose."
+    },
+    {
+      question: "Me(pharmacist): Okay, who will be taking the medicine?",
+      answer:"Patient: Me and I am 34 years old."
+    },
+    {
+      question: "Me (pharmacist): What’s your name? And your ID number?",
+      answer: "Patient: My name is Joon and my ID number is 12345."
+    },
+    {
+      question: "Me (pharmacist): Could you explain your symptoms in more detail?",
+      answer: "Patient: I measured my body temperature in the morning and it was 37.9 degrees celsius. I have a stabbing pain in my head. I have both a runny and stuffy nose. I also have a wet cough."
+    },
+    {
+      question: "Me (pharmacist): When did your symptoms start?",
+      answer: "Patient: About 2 days ago."
+    },
+    {
+      question: "Me (pharmacist) : I see. Do you have any other diseases? Or are you taking any medication?",
+      answer: "Patient : I went to the dentist 3 days ago and was prescribed these antibiotics, dexibuprofen, and stomach medicine."
+    },
+    {
+      question: "Me (pharmacist) : Are there any other things you are taking?",
+      answer: "Patient : I take iron supplements every day."
+    },
+    {
+      question: "Me (pharmacist) : I will keep that in mind. Have you seen the doctor after you caught your cold?",
+      answer: "Patient : Not yet."
+    },
+    {
+      question: "Me (pharmacist) : Then, do you have any drug allergies?",
+      answer: "Patient : No, I do not."
+    },
+    {
+      question: "Me (pharmacist) : Did you take the flu vaccine?",
+      answer: "Patient : No, I have not."
+    },
+    {
+      question: "Me (pharmacist) : Do you either drink or smoke?",
+      answer: "Patient : Not really. I only drink a glass of beer once a week. And I have never smoked before."
+    },
+    {
+      question: "Me (pharmacist) : Then do you have meals regularly? And do you drink enough water?",
+      answer: "Patient : I never skip meals. But I rarely drink water."
+    },
+    {
+      question: "Me (pharmacist) : What do you do?",
+      answer: "Patient : I am a teacher at Daewon Middle School. I spend most of the time standing. That is the hardest part for me."
+    },
+    {
+      question: "Me (pharmacist) : Oh, I am sorry to hear that. Do you live with anyone?",
+      answer: "Patient : I live with my husband and my two sons. They are each 38 months and 5 months old. I am worried that my sons might catch my cold, since they are so little. "
+    },
+    {
+      question: "Me (pharmacist) : Are there any other things I should know of?",
+      answer: "Patient : I prefer drugs without caffeine. I do not like caffeine because I cannot get good quality sleep at night."
+    },
+    {
+      question: "Me (pharmacist) : Okay. There is not that much caffeine in cold medications that might disturb your sleep, but I will try to find one without caffeine for you.",
+      answer: "Patient : Thank you. That would be nice."
+    }
+  ]
+
+  // console.log("length: ",script.length)
+
   useEffect(() => {
     const timer1 = setTimeout(() => {
-      setFlag1(false);
-      setFlag2(true);
+      setFlag(0, false);
+      setFlag(1, true);
     }, 3000);
-    const timer2 = setTimeout(() => {
-      setFlag3(true);
-    }, 5000);
+
     return () => {
       clearTimeout(timer1);
-      clearTimeout(timer2);
     };
   }, []);
-  const onClick1 = () => {
-    setFlag2(false);
-    setFlag3(false);
-    setFlag4(true);
-  };
-  const onClick2 = () => {
-    setFlag4(false);
-    setFlag5(true);
-  };
-  const onClick3 = () => {
-    setFlag5(false);
-    setFlag6(true);
-  };
-  const onClick4 = () => {
-    setFlag6(false);
-    setFlag7(true);
-  };
-  const onClick5 = () => {
-    setFlag6(false);
-    setFlag8(true);
-  };
-  const onClick6 = () => {
-    setFlag6(false);
-    setFlag9(true);
-  };
-  const onClick7 = () => {
-    setFlag8(false);
-    setFlag6(true);
-  };
-  const onClick8 = () => {
-    setFlag9(false);
-    setFlag6(true);
-  };
-  const onClick9 = () => {
-    setFlag7(false);
-    setFlag10(true);
-  };
-  const onClick10 = () => {
-    setFlag12(false);
-    setFlag10(true);
-  };
-  const onClick11 = () => {
-    setFlag11(false);
-    setFlag13(true);
 
-    setTimeout(() => {
-      setFlag13(false);
-      setFlag14(true);
 
-      setTimeout(() => {
-        setFlag14(false);
-        setFlag15(true);
-      }, 6000);
-    }, 3000);
-  };
-  const onClick12 = () => {
-    setFlag5(false);
-    setFlag16(true);
-  };
-  const onClick13 = () => {
-    setFlag16(false);
-    setFlag17(true);
-  };
-  const onClick14 = () => {
-    setFlag16(false);
-    setFlag18(true);
-  };
-  const onClick15 = () => {
-    setFlag16(false);
-    setFlag19(true);
-  };
-  const onClick16 = () => {
-    setFlag18(false);
-    setFlag16(true);
-  };
-  const onClick17 = () => {
-    setFlag19(false);
-    setFlag16(true);
-  };
-  const onClick18 = () => {
-    setFlag17(false);
-    setFlag20(true);
-  };
-  const onClick19 = () => {
-    setFlag21(false);
-    setFlag20(true);
-  };
-  const onClick20 = () => {
-    setFlag22(false);
-    setFlag23(true);
-
-    setTimeout(() => {
-      setFlag23(false);
-      setFlag24(true);
-
-      setTimeout(() => {
-        setFlag24(false);
-        setFlag15(true);
-      }, 6000);
-    }, 3000);
-  };
-  const onClick21 = () => {
-    setFlag5(false);
-    setFlag25(true);
-  };
-  const onClick22 = () => {
-    setFlag25(false);
-    setFlag26(true);
-  };
-  const onClick23 = () => {
-    setFlag26(false);
-    setFlag27(true);
-  };
-  const onClick24 = () => {
-    setFlag27(false);
-    setFlag26(true);
-  };
-  const onClick25 = () => {
-    setFlag26(false);
-    setFlag28(true);
-  };
-  const onClick26 = () => {
-    setFlag28(false);
-    setFlag29(true);
-  };
-  const onClick27 = () => {
-    setFlag30(false);
-    setFlag29(true);
-  };
-  const onClick28 = () => {
-    setFlag31(false);
-    setFlag32(true);
-
-    setTimeout(() => {
-      setFlag32(false);
-      setFlag33(true);
-
-      setTimeout(() => {
-        setFlag33(false);
-        setFlag15(true);
-      }, 6000);
-    }, 3000);
-  };
-  const onClick28_1 = () => {
-    setFlag40(false);
-    setFlag32(true);
-
-    setTimeout(() => {
-      setFlag32(false);
-      setFlag33(true);
-
-      setTimeout(() => {
-        setFlag33(false);
-        setFlag15(true);
-      }, 6000);
-    }, 3000);
-  };
-  const onClick28_2 = () => {
-    setFlag46(false);
-    setFlag32(true);
-
-    setTimeout(() => {
-      setFlag32(false);
-      setFlag33(true);
-
-      setTimeout(() => {
-        setFlag33(false);
-        setFlag15(true);
-      }, 6000);
-    }, 3000);
-  };
-  const onClick29 = () => {
-    setFlag25(false);
-    setFlag34(true);
-  };
-  const onClick30 = () => {
-    setFlag34(false);
-    setFlag35(true);
-  };
-  const onClick30_1 = () => {
-    setFlag47(false);
-    setFlag35(true);
-  };
-  const onClick31 = () => {
-    setFlag35(false);
-    setFlag36(true);
-  };
-  const onClick32 = () => {
-    setFlag36(false);
-    setFlag35(true);
-  };
-  const onClick32_ = () => {
-    setFlag35(false);
-    setFlag37(true);
-  };
-  const onClick33 = () => {
-    setFlag37(false);
-    setFlag38(true);
-  };
-  const onClick34 = () => {
-    setFlag39(false);
-    setFlag38(true);
-  };
-  const onClick35 = () => {
-    setFlag34(false);
-    setFlag41(true);
-  };
-  const onClick35_1 = () => {
-    setFlag47(false);
-    setFlag41(true);
-  };
-  const onClick36 = () => {
-    setFlag41(false);
-    setFlag42(true);
-  };
-  const onClick37 = () => {
-    setFlag42(false);
-    setFlag41(true);
-  };
-  const onClick38 = () => {
-    setFlag41(false);
-    setFlag43(true);
-  };
-  const onClick39 = () => {
-    setFlag43(false);
-    setFlag44(true);
-  };
-  const onClick40 = () => {
-    setFlag45(false);
-    setFlag44(true);
-  };
-  const onClick41 = () => {
-    setFlag5(false);
-    setFlag47(true);
-  };
-  const items1 = [0, 1, 2, 3, 4, 5];
-  const [selectedItems1, setselectedItems1] = useState<number[]>([]);
-  const handleCheckbox1 = (idx: number) => {
-    setselectedItems1((prev) => {
-      if (prev.includes(idx)) {
-        return prev.filter((i) => i !== idx);
-      } else {
-        return [...prev, idx];
-      }
+  {/* 의사와 환자와의 대화 flag idx 1~16 */}
+  const clickHandlers:any = [];
+  const idx = script.length;
+  for (let i = 1; i <= idx; i++) {
+    clickHandlers.push(() => {
+      setFlag(i, false);
+      setFlag(i + 1, true);
     });
-  };
-  const handleSubmit1 = (event: React.FormEvent) => {
-    event.preventDefault();
-    const answer = [1, 4, 5];
-    if (
-      selectedItems1.length === answer.length &&
-      selectedItems1.every((idx) => answer.includes(idx))
-    ) {
-      setFlag10(false);
-      setFlag11(true);
-    } else {
-      setFlag10(false);
-      setFlag12(true);
+  }
+
+
+  for (let i = (idx+1); i < (idx+1) + TEAM_1_PROUDCT.length; i++) {
+    clickHandlers.push(() => {
+      setFlag(17, false);  // 약품 선택 페이지
+      setFlag(i+1, true);   // flag idx 18~21
+    });
+  }
+
+
+  // Access handler functions by index
+  const handleClick = (index: number) => {
+    if (index >= 0 && index < clickHandlers.length) {
+      clickHandlers[index]();
     }
   };
-  const items2 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  const [selectedItems2, setselectedItems2] = useState<number[]>([]);
-  const handleCheckbox2 = (idx: number) => {
-    setselectedItems2((prev) => {
-      if (prev.includes(idx)) {
-        return prev.filter((i) => i !== idx);
-      } else {
-        return [...prev, idx];
-      }
-    });
-  };
-  const handleSubmit2 = (event: React.FormEvent) => {
-    event.preventDefault();
-    const answer = [1, 3, 6, 8];
-    if (
-      selectedItems2.length === answer.length &&
-      selectedItems2.every((idx) => answer.includes(idx))
-    ) {
-      setFlag20(false);
-      setFlag22(true);
-    } else {
-      setFlag20(false);
-      setFlag21(true);
-    }
-  };
-  const items3 = [0, 1, 2, 3, 4, 5];
-  const [selectedItems3, setselectedItems3] = useState<number[]>([]);
-  const handleCheckbox3 = (idx: number) => {
-    setselectedItems3((prev) => {
-      if (prev.includes(idx)) {
-        return prev.filter((i) => i !== idx);
-      } else {
-        return [...prev, idx];
-      }
-    });
-  };
-  const handleSubmit3 = (event: React.FormEvent) => {
-    event.preventDefault();
-    const answer = [1, 4, 5];
-    if (
-      selectedItems3.length === answer.length &&
-      selectedItems3.every((idx) => answer.includes(idx))
-    ) {
-      setFlag29(false);
-      setFlag31(true);
-    } else {
-      setFlag29(false);
-      setFlag30(true);
-    }
-  };
-  const items4 = [0, 1, 2, 3, 4];
-  const [selectedItems4, setselectedItems4] = useState<number[]>([]);
-  const handleCheckbox4 = (idx: number) => {
-    setselectedItems4((prev) => {
-      if (prev.includes(idx)) {
-        return prev.filter((i) => i !== idx);
-      } else {
-        return [...prev, idx];
-      }
-    });
-  };
-  const handleSubmit4 = (event: React.FormEvent) => {
-    event.preventDefault();
-    const answer = [0, 2, 4];
-    if (
-      selectedItems4.length === answer.length &&
-      selectedItems4.every((idx) => answer.includes(idx))
-    ) {
-      setFlag38(false);
-      setFlag40(true);
-    } else {
-      setFlag38(false);
-      setFlag39(true);
-    }
-  };
-  const items5 = [0, 1, 2, 3, 4, 5];
-  const [selectedItems5, setselectedItems5] = useState<number[]>([]);
-  const handleCheckbox5 = (idx: number) => {
-    setselectedItems5((prev) => {
-      if (prev.includes(idx)) {
-        return prev.filter((i) => i !== idx);
-      } else {
-        return [...prev, idx];
-      }
-    });
-  };
-  const handleSubmit5 = (event: React.FormEvent) => {
-    event.preventDefault();
-    const answer = [1, 3];
-    if (
-      selectedItems5.length === answer.length &&
-      selectedItems5.every((idx) => answer.includes(idx))
-    ) {
-      setFlag44(false);
-      setFlag46(true);
-    } else {
-      setFlag44(false);
-      setFlag45(true);
-    }
-  };
+
+  
+
+
+  // const onClick11 = () => {
+  //   setFlag11(false);
+  //   setFlag13(true);
+
+  //   setTimeout(() => {
+  //     setFlag13(false);
+  //     setFlag14(true);
+
+  //     setTimeout(() => {
+  //       setFlag14(false);
+  //       setFlag15(true);
+  //     }, 6000);
+  //   }, 3000);
+  // };
+  // const onClick12 = () => {
+  //   setFlag5(false);
+  //   setFlag16(true);
+  // };
+  // const onClick13 = () => {
+  //   setFlag16(false);
+  //   setFlag17(true);
+  // };
+  // const onClick14 = () => {
+  //   setFlag16(false);
+  //   setFlag18(true);
+  // };
+  // const onClick15 = () => {
+  //   setFlag16(false);
+  //   setFlag19(true);
+  // };
+  // const onClick16 = () => {
+  //   setFlag18(false);
+  //   setFlag16(true);
+  // };
+  // const onClick17 = () => {
+  //   setFlag19(false);
+  //   setFlag16(true);
+  // };
+  // const onClick18 = () => {
+  //   setFlag17(false);
+  //   setFlag20(true);
+  // };
+  // const onClick19 = () => {
+  //   setFlag21(false);
+  //   setFlag20(true);
+  // };
+  // const onClick20 = () => {
+  //   setFlag22(false);
+  //   setFlag23(true);
+
+  //   setTimeout(() => {
+  //     setFlag23(false);
+  //     setFlag24(true);
+
+  //     setTimeout(() => {
+  //       setFlag24(false);
+  //       setFlag15(true);
+  //     }, 6000);
+  //   }, 3000);
+  // };
+  // const onClick21 = () => {
+  //   setFlag5(false);
+  //   setFlag25(true);
+  // };
+  // const onClick22 = () => {
+  //   setFlag25(false);
+  //   setFlag26(true);
+  // };
+  // const onClick23 = () => {
+  //   setFlag26(false);
+  //   setFlag27(true);
+  // };
+  // const onClick24 = () => {
+  //   setFlag27(false);
+  //   setFlag26(true);
+  // };
+  // const onClick25 = () => {
+  //   setFlag26(false);
+  //   setFlag28(true);
+  // };
+  // const onClick26 = () => {
+  //   setFlag28(false);
+  //   setFlag29(true);
+  // };
+  // const onClick27 = () => {
+  //   setFlag30(false);
+  //   setFlag29(true);
+  // };
+  // const onClick28 = () => {
+  //   setFlag31(false);
+  //   setFlag32(true);
+
+  //   setTimeout(() => {
+  //     setFlag32(false);
+  //     setFlag33(true);
+
+  //     setTimeout(() => {
+  //       setFlag33(false);
+  //       setFlag15(true);
+  //     }, 6000);
+  //   }, 3000);
+  // };
+  // const onClick28_1 = () => {
+  //   setFlag40(false);
+  //   setFlag32(true);
+
+  //   setTimeout(() => {
+  //     setFlag32(false);
+  //     setFlag33(true);
+
+  //     setTimeout(() => {
+  //       setFlag33(false);
+  //       setFlag15(true);
+  //     }, 6000);
+  //   }, 3000);
+  // };
+  // const onClick28_2 = () => {
+  //   setFlag46(false);
+  //   setFlag32(true);
+
+  //   setTimeout(() => {
+  //     setFlag32(false);
+  //     setFlag33(true);
+
+  //     setTimeout(() => {
+  //       setFlag33(false);
+  //       setFlag15(true);
+  //     }, 6000);
+  //   }, 3000);
+  // };
+  // const onClick29 = () => {
+  //   setFlag25(false);
+  //   setFlag34(true);
+  // };
+  // const onClick30 = () => {
+  //   setFlag34(false);
+  //   setFlag35(true);
+  // };
+  // const onClick30_1 = () => {
+  //   setFlag47(false);
+  //   setFlag35(true);
+  // };
+  // const onClick31 = () => {
+  //   setFlag35(false);
+  //   setFlag36(true);
+  // };
+  // const onClick32 = () => {
+  //   setFlag36(false);
+  //   setFlag35(true);
+  // };
+  // const onClick32_ = () => {
+  //   setFlag35(false);
+  //   setFlag37(true);
+  // };
+  // const onClick33 = () => {
+  //   setFlag37(false);
+  //   setFlag38(true);
+  // };
+  // const onClick34 = () => {
+  //   setFlag39(false);
+  //   setFlag38(true);
+  // };
+  // const onClick35 = () => {
+  //   setFlag34(false);
+  //   setFlag41(true);
+  // };
+  // const onClick35_1 = () => {
+  //   setFlag47(false);
+  //   setFlag41(true);
+  // };
+  // const onClick36 = () => {
+  //   setFlag41(false);
+  //   setFlag42(true);
+  // };
+  // const onClick37 = () => {
+  //   setFlag42(false);
+  //   setFlag41(true);
+  // };
+  // const onClick38 = () => {
+  //   setFlag41(false);
+  //   setFlag43(true);
+  // };
+  // const onClick39 = () => {
+  //   setFlag43(false);
+  //   setFlag44(true);
+  // };
+  // const onClick40 = () => {
+  //   setFlag45(false);
+  //   setFlag44(true);
+  // };
+  // const onClick41 = () => {
+  //   setFlag5(false);
+  //   setFlag47(true);
+  // };
+  // const items1 = [0, 1, 2, 3, 4, 5];
+  // const [selectedItems1, setselectedItems1] = useState<number[]>([]);
+  // const handleCheckbox1 = (idx: number) => {
+  //   setselectedItems1((prev) => {
+  //     // prev = []
+  //     if (prev.includes(idx)) {
+  //       return prev.filter((i) => i !== idx);
+  //     } else {
+  //       return [...prev, idx];
+  //     }
+  //   });
+  // };
+  // const handleSubmit1 = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const answer = [1, 4, 5];
+  //   if (
+  //     selectedItems1.length === answer.length &&
+  //     selectedItems1.every((idx) => answer.includes(idx))
+  //   ) {
+  //     setFlag10(false);
+  //     setFlag11(true);
+  //   } else {
+  //     setFlag10(false);
+  //     setFlag12(true);
+  //   }
+  // };
+  // const items2 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  // const [selectedItems2, setselectedItems2] = useState<number[]>([]);
+  // const handleCheckbox2 = (idx: number) => {
+  //   setselectedItems2((prev) => {
+  //     if (prev.includes(idx)) {
+  //       return prev.filter((i) => i !== idx);
+  //     } else {
+  //       return [...prev, idx];
+  //     }
+  //   });
+  // };
+  // const handleSubmit2 = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const answer = [1, 3, 6, 8];
+  //   if (
+  //     selectedItems2.length === answer.length &&
+  //     selectedItems2.every((idx) => answer.includes(idx))
+  //   ) {
+  //     setFlag20(false);
+  //     setFlag22(true);
+  //   } else {
+  //     setFlag20(false);
+  //     setFlag21(true);
+  //   }
+  // };
+  // const items3 = [0, 1, 2, 3, 4, 5];
+  // const [selectedItems3, setselectedItems3] = useState<number[]>([]);
+  // const handleCheckbox3 = (idx: number) => {
+  //   setselectedItems3((prev) => {
+  //     if (prev.includes(idx)) {
+  //       return prev.filter((i) => i !== idx);
+  //     } else {
+  //       return [...prev, idx];
+  //     }
+  //   });
+  // };
+  // const handleSubmit3 = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const answer = [1, 4, 5];
+  //   if (
+  //     selectedItems3.length === answer.length &&
+  //     selectedItems3.every((idx) => answer.includes(idx))
+  //   ) {
+  //     setFlag29(false);
+  //     setFlag31(true);
+  //   } else {
+  //     setFlag29(false);
+  //     setFlag30(true);
+  //   }
+  // };
+  // const items4 = [0, 1, 2, 3, 4];
+  // const [selectedItems4, setselectedItems4] = useState<number[]>([]);
+  // const handleCheckbox4 = (idx: number) => {
+  //   setselectedItems4((prev) => {
+  //     if (prev.includes(idx)) {
+  //       return prev.filter((i) => i !== idx);
+  //     } else {
+  //       return [...prev, idx];
+  //     }
+  //   });
+  // };
+  // const handleSubmit4 = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const answer = [0, 2, 4];
+  //   if (
+  //     selectedItems4.length === answer.length &&
+  //     selectedItems4.every((idx) => answer.includes(idx))
+  //   ) {
+  //     setFlag38(false);
+  //     setFlag40(true);
+  //   } else {
+  //     setFlag38(false);
+  //     setFlag39(true);
+  //   }
+  // };
+  // const items5 = [0, 1, 2, 3, 4, 5];
+  // const [selectedItems5, setselectedItems5] = useState<number[]>([]);
+  // const handleCheckbox5 = (idx: number) => {
+  //   setselectedItems5((prev) => {
+  //     if (prev.includes(idx)) {
+  //       return prev.filter((i) => i !== idx);
+  //     } else {
+  //       return [...prev, idx];
+  //     }
+  //   });
+  // };
+  // const handleSubmit5 = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   const answer = [1, 3];
+  //   if (
+  //     selectedItems5.length === answer.length &&
+  //     selectedItems5.every((idx) => answer.includes(idx))
+  //   ) {
+  //     setFlag44(false);
+  //     setFlag46(true);
+  //   } else {
+  //     setFlag44(false);
+  //     setFlag45(true);
+  //   }
+  // };
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-6 gap-20 relative">
       <Image
@@ -435,107 +469,34 @@ export default function Case1() {
         objectPosition="center"
         className="-z-10"
       />
-      <Link href="/case-select" className="fixed left-10 top-10">
-        <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
-          <span className="text-white">Go Back to Select Case</span>
-        </div>
-      </Link>
-      <div className="fixed left-3 bottom-56">
-        <Image
-          src="/pce-logo.png"
-          alt="pce-logo"
-          width={295}
-          height={100}
-          className="fixed left-0"
-        />
-      </div>
-      {flag1 ? (
+      
+      <Footer/>
+
+
+
+      {flags[0] ? (
         <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 fixed bottom-[15%]">
           <span className="text-xl text-gray-500">(Patient walks in...)</span>
         </div>
       ) : null}
-      {flag2 ? (
-        <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 fixed bottom-[15%]">
-          <span className="text-xl text-gray-500">
-            Me (pharmacist): Hi, how are you?
-          </span>
-        </div>
-      ) : null}
-      {flag3 ? (
-        <button
-          onClick={onClick1}
-          className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-24 shadow-lg rounded-lg"
-        >
-          <span className="text-gray-600 text-lg">
-            Ask why the patient visited the pharmacy.
-          </span>
-        </button>
-      ) : null}
-      {flag4 ? (
-        <>
-          <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90">
-            <span className="text-xl text-gray-500">
-              Me (pharmacist): How can I help you?
-            </span>
-          </div>
-          <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 -mt-14">
-            <span className="text-xl text-gray-500">
-              Patient: I came because of constipation.
-            </span>
-          </div>
-          <button
-            onClick={onClick2}
-            className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-24 shadow-lg rounded-lg"
-          >
-            <span className="text-gray-600 text-lg">
-              Ask who is taking the medicine.
-            </span>
-          </button>
-        </>
-      ) : null}
-      {flag5 ? (
-        <div className="flex flex-col items-center justify-center rounded-md w-full gap-8">
-          <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
-            <span className="text-xl text-gray-500">
-              Me (pharmacist): Okay, who will be taking the medicine?
-            </span>
-          </div>
-          <button
-            onClick={onClick3}
-            className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-14 shadow-lg rounded-lg"
-          >
-            <span className="text-gray-600 text-lg">
-              My son and he&apos;s 7 years old. (Note: None)
-            </span>
-          </button>
-          <button
-            onClick={onClick12}
-            className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-14 shadow-lg rounded-lg"
-          >
-            <span className="text-gray-600 text-lg">
-              My mother and she&apos;s 76 years old. (Note: Has hypertension and
-              diabetes)
-            </span>
-          </button>
-          <button
-            onClick={onClick21}
-            className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-14 shadow-lg rounded-lg"
-          >
-            <span className="text-gray-600 text-lg">
-              Me and I&apos;m 40 years old. (Note: None)
-            </span>
-          </button>
-          <button
-            onClick={onClick41}
-            className="flex items-center justify-center bg-[#D8E4D8] w-[50%] h-14 shadow-lg rounded-lg"
-          >
-            <span className="text-gray-600 text-lg">
-              My younger sister and she&apos;s 34 years old. (Note: Pregnant)
-            </span>
-          </button>
-        </div>
-      ) : null}
-      {flag6 ? (
+
+
+
+      {/* 의사와 환자와의 대화 flag idx 1~16 */}
+      {script.map((item, index) => (
+        flags[index+1] ? (
+          <>
+            {/* <BackBtn handleClick = {() => handleClick(index-2)}/> */}
+            <Question text={item.question} />
+            <TextBtn
+              text={item.answer}
+              handleClick={() => handleClick(index)}
+            />
+          </>
+        ) : null
+      ))}
+
+      {flags[17] ? (
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
             <span className="text-xl text-gray-500">
@@ -543,73 +504,24 @@ export default function Case1() {
             </span>
           </div>
           <div className="flex flex-row items-center w-full gap-5 justify-between mt-14">
-            <button onClick={onClick4} className="flex flex-col items-center">
-              <div className="bg-white px-8 py-4 rounded-lg">
-                <Image
-                  src="/product-A.png"
-                  alt="product-A"
-                  width={150}
-                  height={100}
-                />
+            {TEAM_1_PROUDCT.map((product, index) => (
+            <div className="shadow-lg opacity-90">
+   
+              <ProductBtn 
+                src={product.src}
+                alt={product.alt}
+                name={product.name}
+                ingredient={product.ingredient}
+                formulation={product.formulation}
+                handleClick={() => handleClick(16+index)}
+              />
               </div>
-              <div className="mt-8 flex flex-col text-gray-600 bg-white px-6 py-4 rounded-lg shadow-lg opacity-90">
-                <span className="font-semibold text-lg mb-2">Product A</span>
-                <span className="mb-1">
-                  <span className="font-bold">&middot; </span>
-                  Ingredient: Lactulose Concentrate 1.34g/ml
-                </span>
-                <span>
-                  <span className="font-bold">&middot; </span>
-                  Formulation: Syrup(15mL per stick)
-                </span>
-              </div>
-            </button>
-            <button onClick={onClick5} className="flex flex-col items-center">
-              <div className="bg-white px-8 py-4 rounded-lg">
-                <Image
-                  src="/product-B.png"
-                  alt="product-B"
-                  width={150}
-                  height={100}
-                />
-              </div>
-              <div className="mt-8 flex flex-col text-gray-600 bg-white px-6 py-4 rounded-lg shadow-lg opacity-90">
-                <span className="font-semibold text-lg mb-2">Product B</span>
-                <span className="mb-1">
-                  <span className="font-bold">&middot; </span>
-                  Ingredient: Bisacodyl 5mg, Docusate Sodium 16.75mg
-                </span>
-                <span>
-                  <span className="font-bold">&middot; </span>
-                  Formulation: Enteric-coated tablets
-                </span>
-              </div>
-            </button>
-            <button onClick={onClick6} className="flex flex-col items-center">
-              <div className="bg-white px-8 py-7 rounded-lg">
-                <Image
-                  src="/product-C.png"
-                  alt="product-C"
-                  width={150}
-                  height={100}
-                />
-              </div>
-              <div className="mt-8 flex flex-col text-gray-600 bg-white px-6 py-4 rounded-lg shadow-lg opacity-90">
-                <span className="font-semibold text-lg mb-2">Product C</span>
-                <span className="mb-1">
-                  <span className="font-bold">&middot; </span>
-                  Ingredient: Psyllium Husk 3.25g/stick
-                </span>
-                <span>
-                  <span className="font-bold">&middot; </span>
-                  Formulation: Powder
-                </span>
-              </div>
-            </button>
+            ))}
+     
           </div>
         </div>
       ) : null}
-      {flag7 ? (
+      {/* {flag7 ? (
         <>
           <div className="fixed w-full h-screen bg-[#00A700] opacity-20 -z-10" />
           <div className="flex flex-col items-center justify-center w-[60%] h-48 bg-white opacity-90 rounded-lg mt-24">
@@ -2064,7 +1976,7 @@ export default function Case1() {
             </span>
           </button>
         </div>
-      ) : null}
+      ) : null} */} 
     </div>
   );
 }
