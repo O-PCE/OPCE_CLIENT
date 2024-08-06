@@ -3,16 +3,21 @@ import Image from "next/image";
 import Product, { ProductProps } from './Product';
 import Footer from "../global/Footer";
 
+const getPrevLink = (link: string) => {
+  const segments = link.split('/');
+  segments.pop(); // Remove the last segment
+  return segments.join('/');
+};
+
+
 interface InfoProps {
     products: ProductProps[];
     link: string;
-    prevLink: string;
 }
 
 function Info({ 
     products,
     link,
-    prevLink
 }: InfoProps) {
     return (
         <div className="flex flex-col items-center min-h-screen px-6 pt-20 relative">
@@ -24,7 +29,7 @@ function Info({
         objectPosition="center"
         className="opacity-10 -z-10"
       />
-      <Link href={prevLink} className="fixed left-10 top-10">
+      <Link href={getPrevLink(link)} className="fixed left-10 top-10">
         <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
           <span className="text-white">Go Back to Main Page</span>
         </div>

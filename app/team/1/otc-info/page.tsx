@@ -6,6 +6,6 @@ export default function OTCInfo1() {
       <Info 
         products = {TEAM_1_PROUDCT} 
         link = {"/team/1/case"} 
-        prevLink={"/team/1"}/>
+      />
     );
 }
