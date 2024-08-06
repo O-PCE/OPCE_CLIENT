@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, Footer } from '../../../components';
 import TEAM_1_PROUDCT from "@/app/constants/1/productData";
+import BackBtn from "@/app/components/case/BackBtn";
 
 
 export default function Case1() {
@@ -120,21 +121,35 @@ export default function Case1() {
     });
   }
 
-
   for (let i = (idx+1); i < (idx+1) + TEAM_1_PROUDCT.length; i++) {
     clickHandlers.push(() => {
       setFlag(17, false);  // 약품 선택 페이지
       setFlag(i+1, true);   // flag idx 18~21
     });
   }
-
-
   // Access handler functions by index
   const handleClick = (index: number) => {
     if (index >= 0 && index < clickHandlers.length) {
       clickHandlers[index]();
     }
   };
+
+
+  const backBtnHandlers:any = [];
+  for (let i = 1; i <= clickHandlers.length ; i++) {
+    backBtnHandlers.push(() => {
+      setFlag(i, false);
+      setFlag(i-1, true);
+    });
+  }
+  const handleBackBtn = (index: number) => {
+    if (index >= 0 && index < backBtnHandlers.length) {
+      backBtnHandlers[index]();
+    }
+  };
+
+
+  
 
   
 
@@ -486,7 +501,7 @@ export default function Case1() {
       {script.map((item, index) => (
         flags[index+1] ? (
           <>
-            {/* <BackBtn handleClick = {() => handleClick(index-2)}/> */}
+            <BackBtn handleClick = {() => handleBackBtn(index)}/>
             <Question text={item.question} />
             <TextBtn
               text={item.answer}
@@ -547,7 +562,7 @@ export default function Case1() {
           </button>
         </>
       ) : null}
-      {flag8 ? (
+    {flag8 ? (
         <>
           <div className="fixed w-full h-screen bg-[#FF0017] opacity-20 -z-10" />
           <div className="flex flex-col items-center justify-center w-[60%] h-48 bg-white opacity-90 rounded-lg mt-24">
