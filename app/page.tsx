@@ -18,7 +18,7 @@ export default function Home() {
       <div className="-mt-5">
         <div className="flex flex-col gap-2 text-5xl font-semibold text-[#18063c]">
           <span className="">
-            Welcome To <span className="text-[#5bc17f]">O-PCE!.</span>
+            Welcome To <span className="text-[#5bc17f]">O-PCE.</span>
           </span>
           <span>Are You Ready To Learn</span>
           <span>Patient Counseling of OTC Drugs?</span>
