@@ -293,7 +293,7 @@ export default function Case1() {
               handleClick={() => {
                 
                 handleClick(1+index);
-                setFlag(1+index, true);
+                setFlag(2+index, true);
                 
               }}
               />
