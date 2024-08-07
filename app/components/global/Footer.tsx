@@ -11,7 +11,7 @@ function Footer(){
             height={300}
             className="w-auto"  /* Ensure the image scales appropriately */
         />
-        <span className="text-gray-500">
+        <span className="text-gray-500 ml-[-30px]">
             O-PCE is created in collaboration with{" "}
             <span className="font-bold">Daewon Pharmaceutical</span>.
         </span>
