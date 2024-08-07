@@ -8,6 +8,7 @@ import TEAM_5_PATIENT from "@/app/constants/5/PatientData";
 import BackBtn from "@/app/components/case/BackBtn";
 import Correct from "@/app/components/case/Correct";
 import Wrong from "@/app/components/case/Wrong";
+import Patient from "@/app/components/case/Patient";
 
 
 export default function Case1() {
@@ -189,21 +190,27 @@ export default function Case1() {
               
               <TextBtn
               text={text.patient}
-              handleClick={() => {
-                setFlag(index+2, true);
-              }}
+              handleClick={() => handleClick(1+index)}
             
               />
+
               </div>
             ))}
           </div>
         </div>
-      ) : null}   
-
-      
+      ) : null}
 
       {flags[3] ? (
-        <div className="flex flex-col items-center justify-center">
+        <Patient 
+          handleClick={() => {
+            setFlag(4, true);  // 약품 선택 페이지
+          }}
+        />
+      ) : null}
+      
+
+      {flags[4] ? (
+          <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
             <span className="text-xl text-gray-500">
               Choose the best treatment options.
@@ -219,7 +226,7 @@ export default function Case1() {
                 name={product.name}
                 ingredient={product.ingredient}
                 formulation={product.formulation}
-                handleClick={() => handleClick(16+index)}
+                handleClick={() => handleClick(3+index)}
               />
               </div>
             ))}
@@ -228,33 +235,33 @@ export default function Case1() {
         </div>
       ) : null}
 
-      {flags[4] ? (
+      {flags[5] ? (
         <Wrong 
           text={productChooseResult[1]} 
           handleClick={() => {
-            setFlag(17, true);  // 약품 선택 페이지
-            setFlag(18, false);   
+            setFlag(4, true);  // 약품 선택 페이지
+            setFlag(5, false);   
           }}
         />
       ) : null}
-      {flags[5] ? (
-        <Correct text={productChooseResult[0]} handleClick={() => handleClick(18)}/>
-      ) : null}
       {flags[6] ? (
-        <Wrong 
-        text={productChooseResult[2]} 
-        handleClick={() => {
-          setFlag(17, true);  // 약품 선택 페이지
-          setFlag(20, false);   
-        }}
-      />
+        <Correct text={productChooseResult[0]} handleClick={() => handleClick(18)}/>
       ) : null}
       {flags[7] ? (
         <Wrong 
         text={productChooseResult[2]} 
         handleClick={() => {
-          setFlag(17, true);  // 약품 선택 페이지
-          setFlag(21, false);   
+          setFlag(4, true);  // 약품 선택 페이지
+          setFlag(7, false);   
+        }}
+      />
+      ) : null}
+      {flags[8] ? (
+        <Wrong 
+        text={productChooseResult[2]} 
+        handleClick={() => {
+          setFlag(4, true);  // 약품 선택 페이지
+          setFlag(8, false);   
         }}
       />
       ) : null}
