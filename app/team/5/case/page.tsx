@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, Footer } from '../../../components';
 import TEAM_5_PROUDCT from "@/app/constants/5/productData";
+import TEAM_5_PATIENT from "@/app/constants/5/PatientData";
 import BackBtn from "@/app/components/case/BackBtn";
 import Correct from "@/app/components/case/Correct";
 import Wrong from "@/app/components/case/Wrong";
@@ -33,71 +34,36 @@ export default function Case1() {
     {
       question: "Me(pharmacist): Hi, how are you? How can I help you?",
       answer: 
-        "Patient: I seem to have caught a cold after returning from abroad a few days ago.\n"+
-        "I have a headache and high fever.\n"+
-        "I am also suffering from a severe cough, runny nose and stuffy nose."
+        "Patient: I came to get some cold medicine."
     },
-    {
-      question: "Me(pharmacist): Okay, who will be taking the medicine?",
-      answer:"Patient: Me and I am 34 years old."
-    },
-    {
-      question: "Me (pharmacist): What’s your name? And your ID number?",
-      answer: "Patient: My name is Joon and my ID number is 12345."
-    },
-    {
-      question: "Me (pharmacist): Could you explain your symptoms in more detail?",
-      answer: "Patient: I measured my body temperature in the morning and it was 37.9 degrees celsius. I have a stabbing pain in my head. I have both a runny and stuffy nose. I also have a wet cough."
-    },
-    {
-      question: "Me (pharmacist): When did your symptoms start?",
-      answer: "Patient: About 2 days ago."
-    },
-    {
-      question: "Me (pharmacist) : I see. Do you have any other diseases? Or are you taking any medication?",
-      answer: "Patient : I went to the dentist 3 days ago and was prescribed these antibiotics, dexibuprofen, and stomach medicine."
-    },
-    {
-      question: "Me (pharmacist) : Are there any other things you are taking?",
-      answer: "Patient : I take iron supplements every day."
-    },
-    {
-      question: "Me (pharmacist) : I will keep that in mind. Have you seen the doctor after you caught your cold?",
-      answer: "Patient : Not yet."
-    },
-    {
-      question: "Me (pharmacist) : Then, do you have any drug allergies?",
-      answer: "Patient : No, I do not."
-    },
-    {
-      question: "Me (pharmacist) : Did you take the flu vaccine?",
-      answer: "Patient : No, I have not."
-    },
-    {
-      question: "Me (pharmacist) : Do you either drink or smoke?",
-      answer: "Patient : Not really. I only drink a glass of beer once a week. And I have never smoked before."
-    },
-    {
-      question: "Me (pharmacist) : Then do you have meals regularly? And do you drink enough water?",
-      answer: "Patient : I never skip meals. But I rarely drink water."
-    },
-    {
-      question: "Me (pharmacist) : What do you do?",
-      answer: "Patient : I am a teacher at Daewon Middle School. I spend most of the time standing. That is the hardest part for me."
-    },
-    {
-      question: "Me (pharmacist) : Oh, I am sorry to hear that. Do you live with anyone?",
-      answer: "Patient : I live with my husband and my two sons. They are each 38 months and 5 months old. I am worried that my sons might catch my cold, since they are so little. "
-    },
-    {
-      question: "Me (pharmacist) : Are there any other things I should know of?",
-      answer: "Patient : I prefer drugs without caffeine. I do not like caffeine because I cannot get good quality sleep at night."
-    },
-    {
-      question: "Me (pharmacist) : Okay. There is not that much caffeine in cold medications that might disturb your sleep, but I will try to find one without caffeine for you.",
-      answer: "Patient : Thank you. That would be nice."
-    }
+   // {
+   //   question: "Me(pharmacist): Okay, who will be taking the medicine?",
+   //   answer:"Patient: Me and I am 34 years old."
+    
+   // }
   ]
+
+  const patientChooseResult = [
+
+      "My daughter, and she's 4 years old.\n"+
+      "She has a bad cough and sore throat."
+    ,
+      "My father, and he's 68 years old with a history of high blood pressure and diabetes.\n"+
+      "He has severe nasal congestion and headache."
+    ,  
+      "My uncle, and he's 57 years old. He's been experiencing body aches and fever.\n"+
+      "He has acetaminophen hypersensitivity."
+    ,
+      "My son, and he's 30 months old. He has a runny nose and keeps sneezing."
+    ,
+      "My mom, and she's 54 years old. She is currently complaining of a persistent, severe cough and headache.\n"+
+      "She is now taking ibuprofen to relieve cold-induced pain."
+    ,
+      "My wife who's 30 years old and is in the last 3 months of pregnancy.\n"+
+      "She exercised vigorously in cold weather and caught a cold. She has a fever along with muscle pain and sprain."
+    
+  ]
+
 
   const productChooseResult = [
     
@@ -136,7 +102,7 @@ export default function Case1() {
   }, []);
 
 
-  {/* 의사와 환자와의 대화 flag idx 1~16 */}
+  {/* 의사와 환자와의 대화 flag idx 1 */}
   const clickHandlers:any = [];
   const idx = script.length;
   for (let i = 1; i <= idx; i++) {
@@ -148,7 +114,7 @@ export default function Case1() {
 
   for (let i = (idx+1); i < (idx+1) + TEAM_5_PROUDCT.length; i++) {
     clickHandlers.push(() => {
-      setFlag(17, false);  // 약품 선택 페이지
+      setFlag(3, false);  // 약품 선택 페이지
       setFlag(i+1, true);   // flag idx 18~21
     });
   }
@@ -174,231 +140,6 @@ export default function Case1() {
   };
 
 
-  
-
-  
-
-
-  // const onClick11 = () => {
-  //   setFlag11(false);
-  //   setFlag13(true);
-
-  //   setTimeout(() => {
-  //     setFlag13(false);
-  //     setFlag14(true);
-
-  //     setTimeout(() => {
-  //       setFlag14(false);
-  //       setFlag15(true);
-  //     }, 6000);
-  //   }, 3000);
-  // };
-  // const onClick12 = () => {
-  //   setFlag5(false);
-  //   setFlag16(true);
-  // };
-  // const onClick13 = () => {
-  //   setFlag16(false);
-  //   setFlag17(true);
-  // };
-  // const onClick14 = () => {
-  //   setFlag16(false);
-  //   setFlag18(true);
-  // };
-  // const onClick15 = () => {
-  //   setFlag16(false);
-  //   setFlag19(true);
-  // };
-  // const onClick16 = () => {
-  //   setFlag18(false);
-  //   setFlag16(true);
-  // };
-  // const onClick17 = () => {
-  //   setFlag19(false);
-  //   setFlag16(true);
-  // };
-  // const onClick18 = () => {
-  //   setFlag17(false);
-  //   setFlag20(true);
-  // };
-  // const onClick19 = () => {
-  //   setFlag21(false);
-  //   setFlag20(true);
-  // };
-  // const onClick20 = () => {
-  //   setFlag22(false);
-  //   setFlag23(true);
-
-  //   setTimeout(() => {
-  //     setFlag23(false);
-  //     setFlag24(true);
-
-  //     setTimeout(() => {
-  //       setFlag24(false);
-  //       setFlag15(true);
-  //     }, 6000);
-  //   }, 3000);
-  // };
-  // const onClick21 = () => {
-  //   setFlag5(false);
-  //   setFlag25(true);
-  // };
-  // const onClick22 = () => {
-  //   setFlag25(false);
-  //   setFlag26(true);
-  // };
-  // const onClick23 = () => {
-  //   setFlag26(false);
-  //   setFlag27(true);
-  // };
-  // const onClick24 = () => {
-  //   setFlag27(false);
-  //   setFlag26(true);
-  // };
-  // const onClick25 = () => {
-  //   setFlag26(false);
-  //   setFlag28(true);
-  // };
-  // const onClick26 = () => {
-  //   setFlag28(false);
-  //   setFlag29(true);
-  // };
-  // const onClick27 = () => {
-  //   setFlag30(false);
-  //   setFlag29(true);
-  // };
-  // const onClick28 = () => {
-  //   setFlag31(false);
-  //   setFlag32(true);
-
-  //   setTimeout(() => {
-  //     setFlag32(false);
-  //     setFlag33(true);
-
-  //     setTimeout(() => {
-  //       setFlag33(false);
-  //       setFlag15(true);
-  //     }, 6000);
-  //   }, 3000);
-  // };
-  // const onClick28_1 = () => {
-  //   setFlag40(false);
-  //   setFlag32(true);
-
-  //   setTimeout(() => {
-  //     setFlag32(false);
-  //     setFlag33(true);
-
-  //     setTimeout(() => {
-  //       setFlag33(false);
-  //       setFlag15(true);
-  //     }, 6000);
-  //   }, 3000);
-  // };
-  // const onClick28_2 = () => {
-  //   setFlag46(false);
-  //   setFlag32(true);
-
-  //   setTimeout(() => {
-  //     setFlag32(false);
-  //     setFlag33(true);
-
-  //     setTimeout(() => {
-  //       setFlag33(false);
-  //       setFlag15(true);
-  //     }, 6000);
-  //   }, 3000);
-  // };
-  // const onClick29 = () => {
-  //   setFlag25(false);
-  //   setFlag34(true);
-  // };
-  // const onClick30 = () => {
-  //   setFlag34(false);
-  //   setFlag35(true);
-  // };
-  // const onClick30_1 = () => {
-  //   setFlag47(false);
-  //   setFlag35(true);
-  // };
-  // const onClick31 = () => {
-  //   setFlag35(false);
-  //   setFlag36(true);
-  // };
-  // const onClick32 = () => {
-  //   setFlag36(false);
-  //   setFlag35(true);
-  // };
-  // const onClick32_ = () => {
-  //   setFlag35(false);
-  //   setFlag37(true);
-  // };
-  // const onClick33 = () => {
-  //   setFlag37(false);
-  //   setFlag38(true);
-  // };
-  // const onClick34 = () => {
-  //   setFlag39(false);
-  //   setFlag38(true);
-  // };
-  // const onClick35 = () => {
-  //   setFlag34(false);
-  //   setFlag41(true);
-  // };
-  // const onClick35_1 = () => {
-  //   setFlag47(false);
-  //   setFlag41(true);
-  // };
-  // const onClick36 = () => {
-  //   setFlag41(false);
-  //   setFlag42(true);
-  // };
-  // const onClick37 = () => {
-  //   setFlag42(false);
-  //   setFlag41(true);
-  // };
-  // const onClick38 = () => {
-  //   setFlag41(false);
-  //   setFlag43(true);
-  // };
-  // const onClick39 = () => {
-  //   setFlag43(false);
-  //   setFlag44(true);
-  // };
-  // const onClick40 = () => {
-  //   setFlag45(false);
-  //   setFlag44(true);
-  // };
-  // const onClick41 = () => {
-  //   setFlag5(false);
-  //   setFlag47(true);
-  // };
-  // const items1 = [0, 1, 2, 3, 4, 5];
-  // const [selectedItems1, setselectedItems1] = useState<number[]>([]);
-  // const handleCheckbox1 = (idx: number) => {
-  //   setselectedItems1((prev) => {
-  //     // prev = []
-  //     if (prev.includes(idx)) {
-  //       return prev.filter((i) => i !== idx);
-  //     } else {
-  //       return [...prev, idx];
-  //     }
-  //   });
-  // };
-  // const handleSubmit1 = (event: React.FormEvent) => {
-  //   event.preventDefault();
-  //   const answer = [1, 4, 5];
-  //   if (
-  //     selectedItems1.length === answer.length &&
-  //     selectedItems1.every((idx) => answer.includes(idx))
-  //   ) {
-  //     setFlag10(false);
-  //     setFlag11(true);
-  //   } else {
-  //     setFlag10(false);
-  //     setFlag12(true);
-  //   }
-  // };
   // const items2 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   // const [selectedItems2, setselectedItems2] = useState<number[]>([]);
   // const handleCheckbox2 = (idx: number) => {
@@ -522,7 +263,7 @@ export default function Case1() {
 
 
 
-      {/* 의사와 환자와의 대화 flag idx 1~16 */}
+      {/* 의사와 환자와의 대화 flag idx 1*/}
       {script.map((item, index) => (
         flags[index+1] ? (
           <>
@@ -536,7 +277,29 @@ export default function Case1() {
         ) : null
       ))}
 
-      {flags[17] ? (
+      {flags[2] ? (
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
+            <span className="text-xl text-gray-500">
+              Okay. who will be taking the medicine?
+            </span>
+          </div>
+          <div className="flex flex-row items-center w-full gap-5 justify-between mt-14">
+            {TEAM_5_PATIENT.map((text, index) => (
+            <div className="shadow-lg opacity-90">
+              
+              <TextBtn
+              text={text.patient}
+              handleClick={() => handleClick(1+index)}
+              />
+              
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {flags[3] ? (
         <div className="flex flex-col items-center justify-center">
           <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
             <span className="text-xl text-gray-500">
@@ -561,7 +324,7 @@ export default function Case1() {
           </div>
         </div>
       ) : null}
-      {flags[18] ? (
+      {flags[4] ? (
         <Wrong 
           text={productChooseResult[1]} 
           handleClick={() => {
@@ -570,10 +333,10 @@ export default function Case1() {
           }}
         />
       ) : null}
-      {flags[19] ? (
+      {flags[5] ? (
         <Correct text={productChooseResult[0]} handleClick={() => handleClick(18)}/>
       ) : null}
-      {flags[20] ? (
+      {flags[6] ? (
         <Wrong 
         text={productChooseResult[2]} 
         handleClick={() => {
@@ -582,7 +345,7 @@ export default function Case1() {
         }}
       />
       ) : null}
-      {flags[21] ? (
+      {flags[7] ? (
         <Wrong 
         text={productChooseResult[2]} 
         handleClick={() => {

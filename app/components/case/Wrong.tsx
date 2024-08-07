@@ -25,11 +25,10 @@ function Wrong({
             className="absolute left-[15%]"
           />
         </div>
-        <button
-          onClick={handleClick}
-          className="w-60 h-10 bg-gray-300 rounded-full shadow-lg mt-12"
-        >
+        <button onClick={handleClick} className="fixed w-60 h-10">
+          <div className="bg-gray-300 rounded-full shadow-lg mt-12">
           <span className="text-lg text-white">Try again</span>
+          </div>
         </button>
       </>
     )
