@@ -284,13 +284,18 @@ export default function Case1() {
               Okay. who will be taking the medicine?
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center w-300 gap-5 justify-between mt-14">
+          <div className="flex flex-col items-center w-full gap-5 justify-between mt-14">
             {TEAM_5_PATIENT.map((text, index) => (
             <div className="shadow-lg opacity-90">
               
               <TextBtn
               text={text.patient}
-              handleClick={() => handleClick(1+index)}
+              handleClick={() => {
+                
+                handleClick(1+index);
+                setFlag(1+index, true);
+                
+              }}
               />
               
               </div>
@@ -324,6 +329,7 @@ export default function Case1() {
           </div>
         </div>
       ) : null}
+
       {flags[4] ? (
         <Wrong 
           text={productChooseResult[1]} 
