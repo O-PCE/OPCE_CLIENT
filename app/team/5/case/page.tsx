@@ -25,11 +25,6 @@ export default function Case1() {
     });
   };
 
-  const onClick = (index: number) => {
-    setFlag(index, false);
-    setFlag(index+1, true);
-  };
-
   interface Script {
     question: string;
     answer: string;
@@ -195,17 +190,17 @@ export default function Case1() {
               <TextBtn
               text={text.patient}
               handleClick={() => {
-                
-                handleClick(index);
-                
+                setFlag(index+2, true);
               }}
+            
               />
-              
               </div>
             ))}
           </div>
         </div>
       ) : null}   
+
+      
 
       {flags[3] ? (
         <div className="flex flex-col items-center justify-center">
