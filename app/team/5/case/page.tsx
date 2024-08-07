@@ -284,7 +284,7 @@ export default function Case1() {
               Okay. who will be taking the medicine?
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center w-20 gap-5 justify-between mt-14">
+          <div className="flex flex-col items-center justify-center w-200 gap-5 justify-between mt-14">
             {TEAM_5_PATIENT.map((text, index) => (
             <div className="shadow-lg opacity-90">
               
