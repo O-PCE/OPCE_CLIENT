@@ -2,21 +2,20 @@
 
 const productChooseResult4 = [
 
-  "This syrup is formulated for children and can help suppress the cough and reduce throat irritation."
+  "his product is intended for children and may not effectively address body aches and fever in an adult."
 ,
-  "This product is mainly for pain and fever relief.\n"+
-  "It might not be the best choice for addressing cough and sore throat."
+  "Ibuprofen is effective for reducing body aches and fever in adults."
 ,
-  "This product is effective in alleviating various cold symptoms, including a sore throat and cough.\n"+
-  "However, it is not specifically formulated to suppress cough and reduce throat irritation, making it a less suitable choice in this case."
+  "This syrup is designed to relieve a range of cold symptoms, but not specifically for runny nose and sneezing."
 ,
-  "This syrup can reduce symptoms of cold-induced fever, muscle pain and sprain.\n"+
-  "It cannot treat cough and sore throat."
+  "TThis syrup is effective in reducing cold-induced fever, muscle pain and sprain.\n"+
+  "It might not be a good choice for handling runny nose and nasal blockage."
 ,
-  "This product is mainly for snot and nasal congestion.\n"+
-  "You need another option to relieve cough and sore throat."
+  "This product is mainly for nasal mucus and congestion.\n"+
+  "It can be administered to patients aged 2 years old or above."
 ,
-  "This syrup is useful to treat cough and sore throat, but it contains some active ingredients that are not suitable for children."
+  "This product is possible to relieve symptoms of cold, such as fever, muscle pain, cough, sore throat.\n"+
+  "However, it cannot relieve runny and clogged noses."
 
 ]
 

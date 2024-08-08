@@ -1,21 +1,20 @@
 
 const productChooseResult3 = [
 
-  "This syrup is formulated for children and can help suppress the cough and reduce throat irritation."
+  "This product is intended for children and may not effectively address body aches and fever in an adult."
 ,
-  "This product is mainly for pain and fever relief.\n"+
-  "It might not be the best choice for addressing cough and sore throat."
+  "Ibuprofen is a different class of medication from acetaminophen and does not trigger acetaminophen hypersensitivity.\n"+
+  "It is effective for reducing fever and relieving body aches."
 ,
-  "This product is effective in alleviating various cold symptoms, including a sore throat and cough.\n"+
-  "However, it is not specifically formulated to suppress cough and reduce throat irritation, making it a less suitable choice in this case."
+  "This syrup is designed for a range of cold symptoms but contains acetaminophen."
 ,
-  "This syrup can reduce symptoms of cold-induced fever, muscle pain and sprain.\n"+
-  "It cannot treat cough and sore throat."
+  "This syrup contains acetaminophen, which is not suitable for someone with acetaminophen hypersensitivity."
 ,
-  "This product is mainly for snot and nasal congestion.\n"+
-  "You need another option to relieve cough and sore throat."
+  "This product is mainly for snot and nasal congestion in children.\n"+
+  "You need another option to treat body aches and fever."
 ,
-  "This syrup is useful to treat cough and sore throat, but it contains some active ingredients that are not suitable for children."
+  "This syrup is primarily for cough relief and may not effectively address body aches and fever.\n"+
+  "It also contains acetaminophen."
 
 ]
 

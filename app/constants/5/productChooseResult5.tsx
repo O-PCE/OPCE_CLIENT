@@ -1,21 +1,17 @@
 
 const productChooseResult5 = [
 
-  "This syrup is formulated for children and can help suppress the cough and reduce throat irritation."
+  "This syrup is formulated for children and is not suitable for an adult."
 ,
-  "This product is mainly for pain and fever relief.\n"+
-  "It might not be the best choice for addressing cough and sore throat."
+  "This syrup is primarily for pain and inflammation, and not the best for cough."
 ,
-  "This product is effective in alleviating various cold symptoms, including a sore throat and cough.\n"+
-  "However, it is not specifically formulated to suppress cough and reduce throat irritation, making it a less suitable choice in this case."
+  "This syrup is designed to relieve a range of cold symptoms, but not specifically for severe cough."
 ,
-  "This syrup can reduce symptoms of cold-induced fever, muscle pain and sprain.\n"+
-  "It cannot treat cough and sore throat."
+  "This syrup is mainly for fever and pain relief, and does not address cough effectively."
 ,
-  "This product is mainly for snot and nasal congestion.\n"+
-  "You need another option to relieve cough and sore throat."
+  "This syrup is for nasal congestion in children, not suitable for an adult with a cough."
 ,
-  "This syrup is useful to treat cough and sore throat, but it contains some active ingredients that are not suitable for children."
+  "This syrup is specifically designed to relieve persistent and severe cough, making it the best choice for her symptoms."
 
 ]
 
