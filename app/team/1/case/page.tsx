@@ -7,6 +7,11 @@ import TEAM_1_PROUDCT from "@/app/constants/1/productData";
 import BackBtn from "@/app/components/case/BackBtn";
 import Correct from "@/app/components/case/Correct";
 import Wrong from "@/app/components/case/Wrong";
+import Form from "@/app/components/case/Form";
+import TEAM_1_FORM from "@/app/constants/1/formData";
+import TEAM_1_CONSULT_RESULT_DATA from "@/app/constants/1/consultData";
+import Script from "@/app/components/case/Script";
+import Logo from "@/app/components/global/Logo";
 
 
 export default function Case1() {
@@ -118,7 +123,6 @@ export default function Case1() {
     "Coldaewon Kidsfen Syrup is mainly used to reduce fever\n and might not cover all the patients’ symptoms such as coughing, runny and stuffy nose."
     ,
     "Coldaewon Kids Ibufen Syrup contains ibuprofen which is unsuitable to take together with dexibuprofen(dental medication),\nresulting in the overdose of NSAIDs."
-    
 
   ]
 
@@ -146,12 +150,21 @@ export default function Case1() {
     });
   }
 
+  // i = 17 ~ 20
   for (let i = (idx+1); i < (idx+1) + TEAM_1_PROUDCT.length; i++) {
     clickHandlers.push(() => {
       setFlag(17, false);  // 약품 선택 페이지
       setFlag(i+1, true);   // flag idx 18~21
     });
   }
+
+  // for (let i = 1; i <= idx; i++) {
+  //   clickHandlers.push(() => {
+  //     setFlag(i, false);
+  //     setFlag(i + 1, true);
+  //   });
+  // }
+
   // Access handler functions by index
   const handleClick = (index: number) => {
     if (index >= 0 && index < clickHandlers.length) {
@@ -373,11 +386,15 @@ export default function Case1() {
   //   setFlag5(false);
   //   setFlag47(true);
   // };
-  // const items1 = [0, 1, 2, 3, 4, 5];
-  // const [selectedItems1, setselectedItems1] = useState<number[]>([]);
-  // const handleCheckbox1 = (idx: number) => {
-  //   setselectedItems1((prev) => {
-  //     // prev = []
+
+  //flag 22에 해당하는 patient consult
+  const items1 = [0, 1, 2, 3, 4, 5];
+  const checkboxNum = TEAM_1_FORM.data.length;
+  // const [selectedItems, setSelectedItems] = useState(new Array(checkboxNum).fill(false));
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+
+  // const handleCheckbox = (idx: number) => {
+  //   setSelectedItems((prev) => {
   //     if (prev.includes(idx)) {
   //       return prev.filter((i) => i !== idx);
   //     } else {
@@ -385,20 +402,21 @@ export default function Case1() {
   //     }
   //   });
   // };
-  // const handleSubmit1 = (event: React.FormEvent) => {
-  //   event.preventDefault();
-  //   const answer = [1, 4, 5];
-  //   if (
-  //     selectedItems1.length === answer.length &&
-  //     selectedItems1.every((idx) => answer.includes(idx))
-  //   ) {
-  //     setFlag10(false);
-  //     setFlag11(true);
-  //   } else {
-  //     setFlag10(false);
-  //     setFlag12(true);
-  //   }
-  // };
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (selectedItems.length === TEAM_1_FORM.answer.length &&
+      selectedItems.every((idx) => TEAM_1_FORM.answer.includes(idx)))
+    {
+      console.log('Correct answers selected. Updating flags...');
+      setFlag(22,false);
+      setFlag(23,true); 
+    } else {
+      console.log('Wrong answers selected. Updating flags...');
+      setFlag(22,false);
+      setFlag(24,true);
+    }
+  };
   // const items2 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   // const [selectedItems2, setselectedItems2] = useState<number[]>([]);
   // const handleCheckbox2 = (idx: number) => {
@@ -500,6 +518,7 @@ export default function Case1() {
   //   }
   // };
   return (
+    
     <div className="flex flex-col items-center justify-center min-h-screen p-6 gap-20 relative">
       <Image
         src="/home-background.png"
@@ -510,8 +529,9 @@ export default function Case1() {
         className="-z-10"
       />
       
-      <Footer/>
-
+      
+      
+      
 
 
       {flags[0] ? (
@@ -519,7 +539,6 @@ export default function Case1() {
           <span className="text-xl text-gray-500">(Patient walks in...)</span>
         </div>
       ) : null}
-
 
 
       {/* 의사와 환자와의 대화 flag idx 1~16 */}
@@ -532,6 +551,10 @@ export default function Case1() {
               text={item.answer}
               handleClick={() => handleClick(index)}
             />
+            {/* <Script question={item.question}
+            answer = {item.answer}
+            handleClick={() => handleClick(index)} 
+            />*/}
           </>
         ) : null
       ))}
@@ -565,20 +588,25 @@ export default function Case1() {
         <Wrong 
           text={productChooseResult[1]} 
           handleClick={() => {
-            setFlag(17, true);  // 약품 선택 페이지
             setFlag(18, false);   
+            setFlag(17, true);  // 약품 선택 페이지
           }}
         />
       ) : null}
       {flags[19] ? (
-        <Correct text={productChooseResult[0]} handleClick={() => handleClick(18)}/>
+        <Correct 
+        text={productChooseResult[0]} 
+        handleClick={() => {
+          setFlag(19,false);
+          setFlag(22,true);
+        }}/>
       ) : null}
       {flags[20] ? (
         <Wrong 
         text={productChooseResult[2]} 
         handleClick={() => {
-          setFlag(17, true);  // 약품 선택 페이지
           setFlag(20, false);   
+          setFlag(17, true);  // 약품 선택 페이지
         }}
       />
       ) : null}
@@ -586,152 +614,47 @@ export default function Case1() {
         <Wrong 
         text={productChooseResult[2]} 
         handleClick={() => {
-          setFlag(17, true);  // 약품 선택 페이지
           setFlag(21, false);   
+          setFlag(17, true);  // 약품 선택 페이지
         }}
       />
       ) : null}
-       {/*{flag10 ? (
-        <>
-          <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90">
-            <span className="text-xl text-gray-500">
-              Choose all the options which are correct.
-            </span>
-          </div>
-          <form
-            onSubmit={handleSubmit1}
-            className="flex flex-col items-center justify-center gap-8 w-full"
-          >
-            <div className="flex flex-col gap-4 justify-center bg-[#D8E4D8] w-[60%] h-[50vh] px-8 opacity-90 shadow-lg rounded-lg -mt-14">
-              {items1.map((item, idx) => (
-                <div key={idx} className="flex flex-row items-center gap-3">
-                  {idx === 0 ? (
-                    <span className="text-gray-600 text-lg">
-                      1) Administer after breakfast.
-                    </span>
-                  ) : null}
-                  {idx === 1 ? (
-                    <span className="text-gray-600 text-lg">
-                      2) Administer 15 mL per day for the first 2 to 3 days, and
-                      then continue to administer 10 mL per day.
-                    </span>
-                  ) : null}
-                  {idx === 2 ? (
-                    <span className="text-gray-600 text-lg">
-                      3) You will directly have a normal bowel movement.
-                    </span>
-                  ) : null}
-                  {idx === 3 ? (
-                    <span className="text-gray-600 text-lg">
-                      4) It is recommended for prolonged use.
-                    </span>
-                  ) : null}
-                  {idx === 4 ? (
-                    <span className="text-gray-600 text-lg">
-                      5) Drink enough water every day and eat fiber-rich foods
-                      such as prune and kelp.
-                    </span>
-                  ) : null}
-                  {idx === 5 ? (
-                    <span className="text-gray-600 text-lg break-all">
-                      6) Feel bloated and abdominal pain may appear in the
-                      stomach at the beginning of administration.
-                    </span>
-                  ) : null}
-                  <label>
-                    <input
-                      type="checkbox"
-                      checked={selectedItems1.includes(idx)}
-                      onChange={() => handleCheckbox1(idx)}
-                    />
-                  </label>
-                </div>
-              ))}
-            </div>
-            <button
-              type="submit"
-              className="bg-[#5BC17F] px-7 py-2 rounded-full"
-            >
-              <span className="text-white">Done</span>
-            </button>
-          </form>
-        </>
+
+      {/* Go to patient consult */}
+      {flags[22] ? (
+        <Form
+           formData={TEAM_1_FORM.data}
+           selectedItems={selectedItems}
+           handleSubmit={handleSubmit}
+           setSelectedItems={setSelectedItems}
+        />
       ) : null}
-      {flag11 ? (
-        <>
-          <div className="fixed w-full h-screen bg-[#00A700] opacity-20 -z-10" />
-          <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90">
-            <span className="text-xl text-gray-500">
-              You are all correct! Right patient consult was…
-            </span>
-          </div>
-          <div className="flex flex-col justify-center w-[60%] h-[40vh] bg-white opacity-90 rounded-lg -mt-14 pl-14 gap-2">
-            <span>- Administer before breakfast.</span>
-            <span>
-              - Administer 15 mL per day for the first 2 to 3 days, and then
-              continue to administer 10 mL per day.
-            </span>
-            <span>- It may take 1-2 days to have a normal bowel movement.</span>
-            <span>
-              - Long-term reliance on the medication can lead to dependence and
-              changes in bowel habits, so it is not recommended for prolonged
-              use.
-            </span>
-            <span>
-              - Drink enough water every day and eat fiber-rich foods such as
-              prune and kelp.
-            </span>
-            <span>
-              - Feel bloated and abdominal pain may appear in the stomach at the
-              beginning of administration.
-            </span>
-            <Image
-              src="/correct.png"
-              alt="correct"
-              width={200}
-              height={100}
-              className="absolute top-[10%] left-[15%]"
-            />
-          </div>
-          <button
-            onClick={onClick11}
-            className="w-60 h-10 bg-gray-300 rounded-full shadow-lg -mt-8"
-          >
-            <span className="text-lg text-white">Go to See the Result</span>
-          </button>
-        </>
+      {flags[23] ? (
+        <Correct
+          text = {TEAM_1_CONSULT_RESULT_DATA.right}
+          handleClick={() => {
+            setFlag(23,false);
+            setFlag(25,true);
+          }}
+        />
       ) : null}
-      {flag12 ? (
-        <>
-          <div className="fixed w-full h-screen bg-[#FF0017] opacity-20 -z-10" />
-          <div className="flex flex-col items-center justify-center w-[60%] h-48 bg-white opacity-90 rounded-lg mt-24">
-            <span>Oh my god.</span>
-            <span>I think you gave wrong information to the patient.</span>
-            <span>Please try again!</span>
-            <Image
-              src="/wrong.png"
-              alt="wrong"
-              width={200}
-              height={100}
-              className="absolute left-[15%]"
-            />
-          </div>
-          <button
-            onClick={onClick10}
-            className="w-60 h-10 bg-gray-300 rounded-full shadow-lg mt-12"
-          >
-            <span className="text-lg text-white">Try again</span>
-          </button>
-        </>
+     {flags[24] ? (
+        <Wrong 
+          text={TEAM_1_CONSULT_RESULT_DATA.wrong} 
+          handleClick={() => {
+            setFlag(24, false);   
+            setFlag(22, true);  // patient consult 페이지
+          }}
+        />
       ) : null}
-      {flag13 ? (
+      {flags[25] ? (
         <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 fixed bottom-[15%]">
           <span className="text-xl text-gray-500">
             Few Weeks Later... The patient visited the pharmacy.
           </span>
         </div>
       ) : null}
-      {flag14 ? (
+       {/*{flag14 ? (
         <>
           <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90">
             <span className="text-xl text-gray-500">
@@ -1968,6 +1891,9 @@ export default function Case1() {
           </button>
         </div>
       ) : null} */} 
+
+    {/* <Footer/>   */}
+    <Logo/>
     </div>
   );
 }

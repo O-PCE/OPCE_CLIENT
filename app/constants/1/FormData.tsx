@@ -1,5 +1,5 @@
-const TEAM_1_FORM = [
-    
+const TEAM_1_FORM_DATA = [
+
     "1) The syrup can reduce fever, headache, cough, runny and stuffy nose.",
     "2) Administer 2 sticks each in the morning, lunch and dinner.",
     "3) Administer before meal.",
@@ -19,5 +19,14 @@ const TEAM_1_FORM = [
     "17) Can be taken with dental medicine.",
     "18) Might cause liver damage."
 ]
+
+const TEAM_1_FORM_ANSWER = [
+    0, 1, 3, 6, 8, 9, 10, 11, 14, 16, 17
+]
+
+const TEAM_1_FORM = {
+    data: TEAM_1_FORM_DATA,
+    answer: TEAM_1_FORM_ANSWER
+}
 
 export default TEAM_1_FORM;
