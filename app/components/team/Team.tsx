@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FolderIcon } from "@heroicons/react/24/solid";
 import styles from '../../styles.module.css'
+import { Footer } from "../global";
 
 interface TeamProps {
     name: string;
@@ -72,19 +73,9 @@ function Team({
           </div>
         </Link>
       </div>
-      <div className="fixed left-3 bottom-56">
-        <Image
-          src="/pce-logo.png"
-          alt="pce-logo"
-          width={295}
-          height={100}
-          className="fixed left-0"
-        />
-        <span className="text-gray-500 fixed left-64 bottom-16">
-          O-PCE is created in collaboration with{" "}
-          <span className="font-bold">Daewon Pharmaceutical</span>.
-        </span>
-      </div>
+
+      <Footer/>
+      
     </div>
     )
 }
