@@ -1,13 +1,17 @@
-const rightResult = "You are all correct! Right patient consultation was...\nThe syrup can reduce fever, headache, cough, runny and stuffy nose."+
-"Administer 20mL (10mL/stick x 2 sticks) in the morning, lunch and dinner. Keep in mind that people above the age of 15 are administered larger amounts, the interval between the doses being 4 hours."+
-"When required, administer at bedtime."+
-"The syrup contains an ingredient that makes you sleepy. Do not take it before activities that require high concentration."+
-"Antihistamine (such as chlorpheniramine) can cause dry mouth. If you feel that your mouth is dry, you should drink enough water and reduce the dose of the syrup."+
-"Medications are generally not recommended to be taken with alcohol. Acetaminophen, which is metabolized by the liver, can cause liver problems (such as hepatic cirrhosis) together with alcohol."+
-"Do not stand all day at work. It can increase your blood pressure and worsen your headache."+
-"The ingredients in cold medications can affect the results of the skin allergy test."+
-"It is best to shake the syrup before administration to avoid unevenly distributed ingredients."+
-"There are no significant drug interactions between dental medicine and cold medications. Thus they can be taken together."+
+const rightResult = "The syrup can reduce fever, headache, cough, runny and stuffy nose.\n"+
+"Administer 20mL (10mL/stick x 2 sticks) in the morning, lunch and dinner.\n"+
+"Keep in mind that people above the age of 15 are administered larger amounts, the interval between the doses being 4 hours.\n"+
+"When required, administer at bedtime.\n"+
+"The syrup contains an ingredient that makes you sleepy.\n"+
+"Do not take it before activities that require high concentration.\n"+
+"Antihistamine (such as chlorpheniramine) can cause dry mouth.\n"+
+"If you feel that your mouth is dry, you should drink enough water and reduce the dose of the syrup.\n"+
+"Medications are generally not recommended to be taken with alcohol.\n"+
+"Acetaminophen, which is metabolized by the liver, can cause liver problems (such as hepatic cirrhosis) together with alcohol.\n"+
+"Do not stand all day at work. It can increase your blood pressure and worsen your headache.\n"+
+"The ingredients in cold medications can affect the results of the skin allergy test.\n"+
+"It is best to shake the syrup before administration to avoid unevenly distributed ingredients.\n"+
+"There are no significant drug interactions between dental medicine and cold medications. Thus they can be taken together.\n"+
 "Acetaminophen can burden the liver as it gets metabolized."
 
 
