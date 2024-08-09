@@ -10,29 +10,32 @@ function FormCorrect({
   handleClick  
 }: FormCorrectProps) {
     return (
-        <>
-          <div className="fixed w-full h-screen bg-[#00A700] opacity-20 -z-10" />
-          <div className="flex flex-col items-center justify-center w-[60%] bg-white opacity-90 rounded-lg mt-24 p-6">
-            <span className="font-bold">All correct!<br /> </span>
-            
-            <span className="text-s whitespace-pre-line w-full text-center">
-              { text }
-            </span>
-            <Image
-              src="/correct.png"
-              alt="correct"
-              width={200}
-              height={100}
-              className="absolute left-[13%]"
-            />
-          </div>
-          <button
-            onClick={handleClick}
-            className="w-60 h-10 bg-[#B4F3BE] rounded-full shadow-lg mt-12"
-          >
-            <span className="text-lg text-white">See the Result</span>
-          </button>
-        </>
+      <>
+      <div className="fixed w-full h-screen bg-[#00A700] opacity-20 -z-10" />
+      <div className="flex items-center justify-center rounded-md w-[75%] p-3 bg-white opacity-90">
+        <span className="text-xl text-gray-500">
+          You are all correct! Right patient consult was…
+        </span>
+      </div>
+      <div className="flex flex-col justify-center w-[75%] p-5 bg-white opacity-90 rounded-lg -mt-14 pl-14 gap-2">
+        <span className="whitespace-pre-line p-5">
+          { text }
+        </span>
+        <Image
+          src="/correct.png"
+          alt="correct"
+          width={200}
+          height={100}
+          className="absolute top-[3%] left-[7%]"
+        />
+      </div>
+      <button
+        onClick={handleClick}
+        className="w-60 h-10 bg-gray-300 rounded-full shadow-lg -mt-8"
+      >
+        <span className="text-lg text-white">Go to See the Result</span>
+      </button>
+    </>
     )
 }
 
