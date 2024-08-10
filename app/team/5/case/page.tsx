@@ -12,7 +12,6 @@ import Correct from "@/app/components/case/Correct";
 import Wrong from "@/app/components/case/Wrong";
 import Form from "@/app/components/case/Form";
 import React from "react";
-import Result from "@/app/components/case/Result";
 import Script from "@/app/components/case/Script";
 import Logo from "@/app/components/global/Logo";
 
@@ -88,39 +87,59 @@ export default function Case1() {
     {
       setFlag(45, false);
       setFlag(51, true);
-    } else if (selectedItems.length === TEAM_5_FORM.answer2.length &&
+    } else {
+      setFlag(45,false);
+      setFlag(64,true);
+    }
+
+    if (selectedItems.length === TEAM_5_FORM.answer2.length &&
       selectedItems.every((idx) => TEAM_5_FORM.answer2.includes(idx)))
       {
       setFlag(46,false);
       setFlag(52,true);
+    } else {
+      setFlag(46,false);
+      setFlag(64,true);
     }
-    else if (selectedItems.length === TEAM_5_FORM.answer3.length &&
+    
+    if (selectedItems.length === TEAM_5_FORM.answer3.length &&
       selectedItems.every((idx) => TEAM_5_FORM.answer3.includes(idx)))
       {
       setFlag(47,false);
       setFlag(53,true);
+    } else {
+      setFlag(47,false);
+      setFlag(64,true);
     }
-    else if (selectedItems.length === TEAM_5_FORM.answer4.length &&
+    
+    if (selectedItems.length === TEAM_5_FORM.answer4.length &&
       selectedItems.every((idx) => TEAM_5_FORM.answer4.includes(idx)))
       {
       setFlag(48,false);
       setFlag(54,true);
+    } else {
+      setFlag(48,false);
+      setFlag(64,true);
     }
-    else if (selectedItems.length === TEAM_5_FORM.answer5.length &&
+
+    if (selectedItems.length === TEAM_5_FORM.answer5.length &&
       selectedItems.every((idx) => TEAM_5_FORM.answer5.includes(idx)))
       {
       setFlag(49,false);
       setFlag(55,true);
+    } else {
+      setFlag(49,false);
+      setFlag(64,true);
     }
-    else if (selectedItems.length === TEAM_5_FORM.answer6.length &&
+    
+    if (selectedItems.length === TEAM_5_FORM.answer6.length &&
       selectedItems.every((idx) => TEAM_5_FORM.answer6.includes(idx)))
       {
       setFlag(50,false);
       setFlag(56,true);
-    }
-    else 
-    {
-      setFlag(63,true);
+    } else {
+      setFlag(50,false);
+      setFlag(64,true);
     }
   };
 
@@ -221,6 +240,8 @@ export default function Case1() {
     }
   };
 
+
+
   const handleWrongClick = (flagIndex: number) => {
     if (previousFlagIndex !== null) {
       setFlag(flagIndex, false);
@@ -318,13 +339,14 @@ export default function Case1() {
       ))}
 
       {flags[2] ? (
-        <div className="flex flex-col items-center justify-center rounded-md w-full gap-8">
-          <BackBtn handleClick = {() => handleBackBtn(1)}/>  
-          <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
-            <span className="text-xl text-gray-500">
+        <div className="flex flex-col items-center justify-center">
+          <BackBtn handleClick = {() => handleBackBtn(1)}/>
+          <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-8">
+            <span className="text-xl font-bold text-gray-500">
               Okay. who will be taking the medicine?
             </span>
           </div>
+          <div className="flex flex-col justify-center w-full gap-3 justify-between mt-2">
             {TEAM_5_PATIENT.map((text, index) => (
             <div className="shadow-lg opacity-90">
               
@@ -334,6 +356,7 @@ export default function Case1() {
               />
               </div>
             ))}
+          </div>
         </div>
       ) : null}
 
@@ -644,6 +667,15 @@ export default function Case1() {
 
       {flags[63] ? (
         <Success/>
+      ) : null}
+
+      {flags[64] ? (
+        <Wrong 
+          text={TEAM_5_CONSULT_RESULT_DATA.wrong}
+          handleClick={() =>{
+            handleWrongClick(64);
+          }}
+        />
       ) : null}
 
     <Logo/>
