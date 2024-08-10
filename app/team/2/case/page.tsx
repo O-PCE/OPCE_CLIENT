@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, BackBtn, Correct, Wrong, Success, Form, FormCorrect } from '@/app/components';
 import Logo from "@/app/components/global/Logo";
