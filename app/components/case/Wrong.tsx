@@ -12,7 +12,7 @@ function Wrong({
     return (
       <>
         <div className="fixed w-full h-screen bg-[#FF0017] opacity-20 -z-10" />
-        <div className="flex flex-col items-center justify-center w-[60%] bg-white opacity-90 rounded-lg mt-24 p-6">
+        <div className="flex flex-col items-center justify-center w-[70%] bg-white opacity-90 rounded-lg mt-24 p-10 pl-20 pr-20">
           <span className="font-bold">Please try again!</span>
           <span className="text-s whitespace-pre-line w-full text-center">
             <br />
@@ -23,7 +23,7 @@ function Wrong({
             alt="wrong"
             width={200}
             height={100}
-            className="absolute left-[15%]"
+            className="absolute left-[9%]"
           />
         </div>
         <button onClick={handleClick}

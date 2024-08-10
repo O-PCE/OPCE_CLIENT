@@ -1,5 +1,9 @@
 import Image from "next/image";
 
+const gradientStyle = {
+  background: 'linear-gradient(180deg, #00A700 0%, #004100 100%)'
+};
+
 interface FormCorrectProps {
     text: string;
     handleClick: () => void;
@@ -11,24 +15,25 @@ function FormCorrect({
 }: FormCorrectProps) {
     return (
       <>
-      <div className="fixed w-full h-screen bg-[#00A700] opacity-20 -z-10" />
-      <div className="flex items-center justify-center rounded-md w-[75%] p-3 bg-white opacity-90">
+      <div className="fixed w-full h-screen opacity-30 -z-10" style={gradientStyle}/>
+      <div className="flex items-center justify-center rounded-md w-[75%] p-2 bg-white opacity-90 -mt-50">
         <span className="text-xl text-gray-500">
           You are all correct! Right patient consult was…
         </span>
       </div>
-      <div className="flex flex-col justify-center w-[75%] p-5 bg-white opacity-90 rounded-lg -mt-14 pl-14 gap-2">
-        <span className="whitespace-pre-line p-5">
+      <div className="flex flex-col justify-center w-[75%] h-[60vh] bg-white opacity-90 rounded-lg -mt-14 pl-14 ">
+        <span className="whitespace-pre-line p-10 leading-relaxed">
           { text }
         </span>
-        <Image
+        
+      </div>
+      <Image
           src="/correct.png"
           alt="correct"
           width={200}
           height={100}
-          className="absolute top-[3%] left-[7%]"
+          className="absolute top-[2%] left-[8%]"
         />
-      </div>
       <button
         onClick={handleClick}
         className="w-60 h-10 bg-gray-300 rounded-full shadow-lg -mt-8"
