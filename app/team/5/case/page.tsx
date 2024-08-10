@@ -16,14 +16,10 @@ import Result from "@/app/components/case/Result";
 import Script from "@/app/components/case/Script";
 import Logo from "@/app/components/global/Logo";
 
-import TEAM_5_CONSULT_RESULT_DATA1 from "@/app/constants/5/ConsultData/consultData1";
+import TEAM_5_CONSULT_RESULT_DATA from "@/app/constants/5/ConsultData";
 
-import TEAM_5_FINALRESULT_ANSWER from "@/app/constants/5/FinalResultAns";
-import TEAM_5_FINALRESULT_QUESTION from "@/app/constants/5/FinalResultQ";
-
-import TEAM_5_FORM1 from "@/app/constants/5/FormData/formData1";
-import TEAM_5_FORM2 from "@/app/constants/5/FormData/formData2";
-import TEAM_5_FORM3 from "@/app/constants/5/FormData/formData3";
+import TEAM_5_FINALRESULT from "@/app/constants/5/FinalResultData";
+import TEAM_5_FORM from "@/app/constants/5/FormData";
 
 import productChooseResult1 from "@/app/constants/5/productChooseResult/productChooseResult1";
 import productChooseResult2 from "@/app/constants/5/productChooseResult/productChooseResult2";
@@ -32,10 +28,11 @@ import productChooseResult4 from "@/app/constants/5/productChooseResult/productC
 import productChooseResult5 from "@/app/constants/5/productChooseResult/productChooseResult5";
 import productChooseResult6 from "@/app/constants/5/productChooseResult/productChooseResult6";
 
+import Success from "@/app/components/case/Success";
 
 export default function Case1() {
 
-  const array = new Array(58).fill(false);
+  const array = new Array(65).fill(false);
   const newArray = [true, ...array];
   const [flags, setFlags] = useState(newArray);
   const [selectedPatientIndex, setSelectedPatientIndex] = useState(0);
@@ -83,21 +80,51 @@ export default function Case1() {
       }
   };
 
-  const handleSubmit = (e: React.FormEvent, currentFlagIndex: number, correctAnswers: number[], nextFlagIndex: number) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     
-    const allCorrect = correctAnswers.every(answer => selectedItems.includes(answer));
-    
-    if (allCorrect) {
-      console.log('Correct answers selected. Updating flags...');
-      setFlag(currentFlagIndex, false);
-      setFlag(nextFlagIndex, true);
-    } else {
-      console.log('Wrong answers selected. Updating flags...');
-      setFlag(currentFlagIndex,false);
-      setFlag(nextFlagIndex+6,true);
+    if (selectedItems.length === TEAM_5_FORM.answer1.length &&
+      selectedItems.every((idx) => TEAM_5_FORM.answer1.includes(idx)))
+    {
+      setFlag(45, false);
+      setFlag(51, true);
+    } else if (selectedItems.length === TEAM_5_FORM.answer2.length &&
+      selectedItems.every((idx) => TEAM_5_FORM.answer2.includes(idx)))
+      {
+      setFlag(46,false);
+      setFlag(52,true);
+    }
+    else if (selectedItems.length === TEAM_5_FORM.answer3.length &&
+      selectedItems.every((idx) => TEAM_5_FORM.answer3.includes(idx)))
+      {
+      setFlag(47,false);
+      setFlag(53,true);
+    }
+    else if (selectedItems.length === TEAM_5_FORM.answer4.length &&
+      selectedItems.every((idx) => TEAM_5_FORM.answer4.includes(idx)))
+      {
+      setFlag(48,false);
+      setFlag(54,true);
+    }
+    else if (selectedItems.length === TEAM_5_FORM.answer5.length &&
+      selectedItems.every((idx) => TEAM_5_FORM.answer5.includes(idx)))
+      {
+      setFlag(49,false);
+      setFlag(55,true);
+    }
+    else if (selectedItems.length === TEAM_5_FORM.answer6.length &&
+      selectedItems.every((idx) => TEAM_5_FORM.answer6.includes(idx)))
+      {
+      setFlag(50,false);
+      setFlag(56,true);
+    }
+    else 
+    {
+      setFlag(63,true);
     }
   };
+
+  
 
   // 환자 선택 -> 다른 flag로 이동
   const handlePatientSelection = (index: number) => {
@@ -291,14 +318,13 @@ export default function Case1() {
       ))}
 
       {flags[2] ? (
-        <div className="flex flex-col items-center justify-center">
-          <BackBtn handleClick = {() => handleBackBtn(1)}/>
-          <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-8">
-            <span className="text-xl font-bold text-gray-500">
+        <div className="flex flex-col items-center justify-center rounded-md w-full gap-8">
+          <BackBtn handleClick = {() => handleBackBtn(1)}/>  
+          <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
+            <span className="text-xl text-gray-500">
               Okay. who will be taking the medicine?
             </span>
           </div>
-          <div className="flex flex-col justify-center w-full gap-3 justify-between mt-2">
             {TEAM_5_PATIENT.map((text, index) => (
             <div className="shadow-lg opacity-90">
               
@@ -308,7 +334,6 @@ export default function Case1() {
               />
               </div>
             ))}
-          </div>
         </div>
       ) : null}
 
@@ -505,8 +530,8 @@ export default function Case1() {
 
       {flags[45] ? (
         <Form
-          formData={TEAM_5_FORM1.map(item => item.item)}
-          handleSubmit={(e) => handleSubmit(e, 45, [0, 1, 4, 5], 51)}
+          formData={TEAM_5_FORM.data1}
+          handleSubmit={handleSubmit}
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
@@ -514,37 +539,111 @@ export default function Case1() {
 
       {flags[46] ? (
         <Form
-        formData={TEAM_5_FORM2.map(item => item.item)}
-          handleSubmit={(e) => handleSubmit(e, 46, [0, 1, 3, 4, 7, 8], 52)}
+        formData={TEAM_5_FORM.data2}
+        handleSubmit={handleSubmit}
           selectedItems={selectedItems}
           setSelectedItems={setSelectedItems}
         />
       ) : null}
 
+      {flags[47] ? (
+        <Form
+        formData={TEAM_5_FORM.data3}
+        handleSubmit={handleSubmit}
+          selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}
+        />
+      ) : null}
 
+      {flags[48] ? (
+        <Form
+        formData={TEAM_5_FORM.data4}
+          handleSubmit={handleSubmit}
+          selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}
+        />
+      ) : null}
+
+      {flags[49] ? (
+        <Form
+        formData={TEAM_5_FORM.data5}
+          handleSubmit={handleSubmit}
+          selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}
+        />
+      ) : null}
+
+      {flags[50] ? (
+        <Form
+        formData={TEAM_5_FORM.data6}
+          handleSubmit={handleSubmit}
+          selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}
+        />
+      ) : null}
 
       {flags[51] ? (
         <FormCorrect
-        text = {TEAM_5_CONSULT_RESULT_DATA1.right}
-        handleClick={() => handleCorrectClick(51, 57)
-        }
-      />
+        text = {TEAM_5_CONSULT_RESULT_DATA.right1}
+        handleClick={() => handleClick(58)}/>
+      ) : null}
+
+      {flags[52] ? (
+        <FormCorrect
+        text = {TEAM_5_CONSULT_RESULT_DATA.right2}
+        handleClick={() => handleClick(59)}/>
+      ) : null}
+
+      {flags[53] ? (
+        <FormCorrect
+        text = {TEAM_5_CONSULT_RESULT_DATA.right3}
+        handleClick={() => handleClick(60)}/>
+      ) : null}
+
+      {flags[54] ? (
+        <FormCorrect
+        text = {TEAM_5_CONSULT_RESULT_DATA.right4}
+        handleClick={() => handleClick(61)}/>
+      ) : null}
+
+      {flags[55] ? (
+        <FormCorrect
+        text = {TEAM_5_CONSULT_RESULT_DATA.right5}
+        handleClick={() => handleClick(62)}/>
+      ) : null}
+
+      {flags[56] ? (
+        <FormCorrect
+        text = {TEAM_5_CONSULT_RESULT_DATA.right6}
+        handleClick={() => handleClick(63)}/>
       ) : null}
 
       {flags[57] ? (
-        <>
-          <Result
-            question={TEAM_5_FINALRESULT_QUESTION[0]}
-            answer={TEAM_5_FINALRESULT_ANSWER[0]}
-          />
+        <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 fixed bottom-[15%]">
+          <span className="text-xl text-gray-500">
+            Few Weeks Later... The patient visited the pharmacy.
+          </span>
+        </div>
+      ) : null}
 
-          <Link href="/" className="fixed left-10 top-10">
+      {TEAM_5_FINALRESULT.map((item, index) => (
+        flags[index+58] ? (
+          <>
+            
+            <Question text={item.question} />
+            <Question text={item.answer} />
+            <Link href="/" className="fixed left-10 top-10">
             <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
               <span className="text-white">Go Back to Main Page</span>
             </div>
           </Link>
-        </>
-       
+          
+          </>
+        ) : null
+      ))}
+
+      {flags[63] ? (
+        <Success/>
       ) : null}
 
     <Logo/>
