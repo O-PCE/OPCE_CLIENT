@@ -13,38 +13,32 @@ const TEAM_1_PROUDCT = [
       formulation: 'Syrup(20mL per stick)',
     },
     {
-      src: '/Coldaewon-Cough-Q-Syrup.png',
-      alt: 'product-B',
-      name: 'Coldaewon Cough-Q Syrup',
-      ingredient: 
-        'Acetaminophen 325mg (anti-pyretic)\n'+
-        'Dextromethrophan bromide hydrochloride 16mg (antitussive)\n'+
-        'DL methylephedrine hydrochloride 21mg (Antitussive, Decongestant)\n'+
-        'Guaiphenesin 83mg (expectorant)\n'+
-        'caffeine anhydride 25mg (CNS stimulant)',
-      formulation: 'Syrup (1 pack 20mL)',
-    },
-    {
       src: '/Coldaewon-Kids-Cold-Syrup.png',
-      alt: 'product-C',
+      alt: 'product-B',
       name: 'Coldaewon Kids Cold Syrup',
       ingredient: 
-        'Acetaminophen 75 mg (antipyretic)\n'+
-        'Chlorpheniramine maleate 0.375 mg (1st generation H1 antihistamine)\n'+
-        'Dextromethorphan bromide hydrochloride 6 mg (Antitussive)\n'+
-        'DL-methylephedrine hydrochloride 0.375 mg (Antitussive, Decongestant)\n'+
-        'Guaiphenesin 31.25 mg (Expectorant)',
-      formulation: 'Syrup (1 pack 10mL)',
+      'Acetaminophen 75mg\n'+
+      'Chlorpheniramin maleate 0.9375mg\n'+
+      'dextromethorphan bromide hydrochloride 6mg\n'+
+      'DL-methylephedrine hydrochloride 9.375mg\n'+
+      'guaiphenesin 31.25mg (per 10mL)',
+      formulation: 'Syrup(10mL per stick)',
     },
     {
-      src: '/Coldaewon-Kids-Cough-Syrup.png',
+      src: '/Coldaewon-Kidsfen-Syrup.png',
       alt: 'product-C',
-      name: 'Coldaewon Kids Cough Syrup',
+      name: 'Coldaewon Kidsfen Syrup',
       ingredient: 
-        'Pentoxiberin citrate 2.5 mg (antitussive)\n'+
-        'DL-methylephedrine hydrochloride 3.125 mg (Antitussive, Decongestant)\n'+
-        'Guaiphenesin 10.5 mg (expectorant)\n',
-      formulation: 'Syrup (1 pack 5mL)',
+        'Acetaminophen 3.2g (per 100mL)',
+      formulation: 'Syrup (5mL per stick)',
+    },
+    {
+      src: '/Coldaewon-Kids-Ibufen-Syrup.png',
+      alt: 'product-D',
+      name: 'Coldaewon Kids Ibufen Syrup',
+      ingredient: 
+        'Ibuprofen 2g (per 100mL)',
+      formulation: 'Syrup (5mL per stick)',
     }
 ];
 
