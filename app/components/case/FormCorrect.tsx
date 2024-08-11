@@ -21,7 +21,7 @@ function FormCorrect({
           You are all correct! Right patient consult was…
         </span>
       </div>
-      <div className="flex flex-col justify-center w-[75%] h-[60vh] bg-white opacity-90 rounded-lg -mt-14 pl-14 ">
+      <div className="flex flex-col justify-center w-[75%] p-5 bg-white opacity-90 rounded-lg -mt-14 pl-14 gap-2">
         <span className="whitespace-pre-line p-10 leading-relaxed">
           { text }
         </span>
