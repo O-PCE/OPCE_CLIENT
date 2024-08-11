@@ -26,7 +26,7 @@ import PatientBtn from "@/app/components/case/PatientBtn";
 
 export default function Case1() {
 
-  const array = new Array(50).fill(false);
+  const array = new Array(45).fill(false);
   const newArray = [true, ...array];
   const [flags, setFlags] = useState(newArray);
   const [selectedPatientIndex, setSelectedPatientIndex] = useState(0);
@@ -37,8 +37,6 @@ export default function Case1() {
   const [selectedItems2, setSelectedItems2] = useState<number[]>([]);
   const [selectedItems3, setSelectedItems3] = useState<number[]>([]);
   const [selectedItems4, setSelectedItems4] = useState<number[]>([]);
-  const [selectedItems5, setSelectedItems5] = useState<number[]>([]);
-  const [selectedItems6, setSelectedItems6] = useState<number[]>([]);
 
   // Example function to update a specific flag
   const setFlag = (index: number, value: boolean) => {
@@ -87,11 +85,11 @@ export default function Case1() {
       selectedItems1.length === TEAM_6_FORM.answer[0].length &&
       selectedItems1.every((idx) => TEAM_6_FORM.answer[0].includes(idx))
     ) {
-      setFlag(29, false);
-      setFlag(33, true);
+      setFlag(23, false);
+      setFlag(27, true);
     } else {
-      setFlag(29, false);
-      setFlag(42, true);
+      setFlag(23, false);
+      setFlag(36, true);
     }
   };
 
@@ -101,11 +99,11 @@ export default function Case1() {
       selectedItems2.length === TEAM_6_FORM.answer[1].length &&
       selectedItems2.every((idx) => TEAM_6_FORM.answer[1].includes(idx))
     ) {
-      setFlag(30, false);
-      setFlag(34, true);
+      setFlag(24, false);
+      setFlag(28, true);
     } else {
-      setFlag(30, false);
-      setFlag(43, true);
+      setFlag(24, false);
+      setFlag(37, true);
     }
   };
 
@@ -115,11 +113,11 @@ export default function Case1() {
       selectedItems3.length === TEAM_6_FORM.answer[2].length &&
       selectedItems3.every((idx) => TEAM_6_FORM.answer[2].includes(idx))
     ) {
-      setFlag(31, false);
-      setFlag(35, true);
+      setFlag(25, false);
+      setFlag(29, true);
     } else {
-      setFlag(31, false);
-      setFlag(44, true);
+      setFlag(25, false);
+      setFlag(38, true);
     }
   };
     const handleSubmit4 = (event: React.FormEvent) => {
@@ -128,58 +126,58 @@ export default function Case1() {
       selectedItems4.length === TEAM_6_FORM.answer[3].length &&
       selectedItems4.every((idx) => TEAM_6_FORM.answer[3].includes(idx))
     ) {
-      setFlag(32, false);
-      setFlag(36, true);
+      setFlag(26, false);
+      setFlag(30, true);
     } else {
-      setFlag(32, false);
-      setFlag(45, true);
+      setFlag(26, false);
+      setFlag(39, true);
     }
   };
 
 
   const goToFinalResult1 = () => {    
-    setFlag(33, false);
-    setFlag(37, true); 
+    setFlag(27, false);
+    setFlag(31, true); 
     
     setTimeout(() => {
-      setFlag(37, false);
-      setFlag(38, true); 
+      setFlag(31, false);
+      setFlag(32, true); 
 
       setTimeout(() => {
-        setFlag(38, false);
-        setFlag(46, true); 
+        setFlag(32, false);
+        setFlag(40, true); 
 
       }, 3000);
 
     }, 3000);
   }
   const goToFinalResult2 = () => { 
-    setFlag(34, false);
-    setFlag(37, true); 
+    setFlag(28, false);
+    setFlag(31, true); 
     
     setTimeout(() => {
-      setFlag(37, false);
-      setFlag(39, true); 
+      setFlag(31, false);
+      setFlag(33, true); 
 
       setTimeout(() => {
-        setFlag(39, false);
-        setFlag(46, true); 
+        setFlag(33, false);
+        setFlag(40, true); 
 
       }, 3000);
 
     }, 3000);
   }
   const goToFinalResult3 = () => {    
-    setFlag(35, false);
-    setFlag(37, true); 
+    setFlag(29, false);
+    setFlag(31, true); 
     
     setTimeout(() => {
-      setFlag(37, false);
-      setFlag(40, true); 
+      setFlag(31, false);
+      setFlag(34, true); 
 
       setTimeout(() => {
-        setFlag(39, false);
-        setFlag(46, true); 
+        setFlag(34, false);
+        setFlag(40, true); 
 
       }, 3000);
 
@@ -187,16 +185,16 @@ export default function Case1() {
   }
 
   const goToFinalResult4 = () => {    
-    setFlag(33, false);
-    setFlag(37, true); 
+    setFlag(30, false);
+    setFlag(31, true); 
     
     setTimeout(() => {
-      setFlag(37, false);
-      setFlag(41, true); 
+      setFlag(31, false);
+      setFlag(35, true); 
 
       setTimeout(() => {
-        setFlag(41, false);
-        setFlag(46, true); 
+        setFlag(35, false);
+        setFlag(40, true); 
 
       }, 3000);
 
@@ -270,7 +268,7 @@ export default function Case1() {
       setFlag(currentFlagIndex, false);
       setFlag(correctPageFlagIndex, true);  // 환자 Correct 페이지로 이동
     } else if (wrongIndex !== -1) {
-        const wrongPageFlagIndex = selectedPatientIndex * 5 + 15 + wrongIndex;
+        const wrongPageFlagIndex = selectedPatientIndex * 3 + 11 + wrongIndex;
         setPreviousFlagIndex(currentFlagIndex); //현재 flagindex 저장
         setFlag(currentFlagIndex, false);
         setFlag(wrongPageFlagIndex, true);  // Wrong 페이지로 이동
@@ -501,19 +499,19 @@ export default function Case1() {
 
 
       {flags[7] ? (
-        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[0][1]} handleClick={() => handleCorrectClick(7, 29)}/>
+        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[0][1]} handleClick={() => handleCorrectClick(7, 23)}/>
       ) : null}
 
       {flags[8] ? (
-        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[1][0]} handleClick={() => handleCorrectClick(8, 30)}/>
+        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[1][0]} handleClick={() => handleCorrectClick(8, 24)}/>
       ) : null}
 
       {flags[9] ? (
-        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[2][2]} handleClick={() => handleCorrectClick(9, 31)}/>
+        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[2][2]} handleClick={() => handleCorrectClick(9,25)}/>
       ) : null}
 
       {flags[10] ? (
-        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[3][2]} handleClick={() => handleCorrectClick(10, 32)}/>
+        <Correct text={TEAM_6_PRODUCT_CHOOSE_RESULT[3][2]} handleClick={() => handleCorrectClick(10, 26)}/>
       ) : null}
 
       {wrongFlags[selectedPatientIndex].map((flagIndex, idx) => (
@@ -527,7 +525,7 @@ export default function Case1() {
       ) : null
     ))}
 
-      {flags[29] ? (
+      {flags[23] ? (
         <Form
           formData={TEAM_6_FORM.data[0]}
           selectedItems={selectedItems1}
@@ -536,7 +534,7 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[30] ? (
+      {flags[24] ? (
         <Form
           formData={TEAM_6_FORM.data[1]}
           selectedItems={selectedItems2}
@@ -545,7 +543,7 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[31] ? (
+      {flags[25] ? (
         <Form
           formData={TEAM_6_FORM.data[2]}
           selectedItems={selectedItems3}
@@ -554,7 +552,7 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[32] ? (
+      {flags[26] ? (
         <Form
           formData={TEAM_6_FORM.data[3]}
           selectedItems={selectedItems4}
@@ -563,13 +561,13 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[33] ? (
+      {flags[27] ? (
         <FormCorrect
         text = {TEAM_6_CONSULT_RESULT_DATA.right[0]}
         handleClick={goToFinalResult1}/>
       ) : null}
 
-      {flags[42] ? (
+      {flags[36] ? (
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
@@ -579,13 +577,13 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[34] ? (
+      {flags[28] ? (
         <FormCorrect
         text = {TEAM_6_CONSULT_RESULT_DATA.right[1]}
         handleClick={goToFinalResult2}/>
       ) : null}
 
-      {flags[43] ? (
+      {flags[37] ? (
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
@@ -595,13 +593,13 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[35] ? (
+      {flags[29] ? (
         <FormCorrect
         text = {TEAM_6_CONSULT_RESULT_DATA.right[2]}
         handleClick={goToFinalResult3}/>
       ) : null}
 
-      {flags[44] ? (
+      {flags[38] ? (
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
@@ -611,13 +609,13 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[36] ? (
+      {flags[30] ? (
         <FormCorrect
         text = {TEAM_6_CONSULT_RESULT_DATA.right[3]}
         handleClick={goToFinalResult4}/>
       ) : null}
 
-      {flags[45] ? (
+      {flags[39] ? (
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
@@ -627,7 +625,7 @@ export default function Case1() {
         />
       ) : null}
 
-      {flags[37] ? (
+      {flags[31] ? (
         <div className="flex items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 fixed bottom-[15%]">
           <span className="text-xl text-gray-500">
             Few Weeks Later... The patient visited the pharmacy.
@@ -637,7 +635,7 @@ export default function Case1() {
       ) : null}
 
       {TEAM_6_FINALRESULT.map((item, index) => (
-        flags[index+38] ? (
+        flags[index+32] ? (
           <>   
             <Question text={item.question} />
             <Question text={item.answer} />
@@ -645,7 +643,7 @@ export default function Case1() {
         ) : null
       ))}
 
-      {flags[46] ? (
+      {flags[40] ? (
         <Success/>
       ) : null}
 

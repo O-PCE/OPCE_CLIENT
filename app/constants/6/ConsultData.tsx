@@ -35,7 +35,7 @@ const rightResult = [
     "Ibuprofen might cause gastrointestinal problems such as diarrhea."
     ]
     
-    const wrongResult = "Oh no, you made a mistake! You are still learning so don't give up! Please try again."
+    const wrongResult = "Oh no, you made a mistake! You are still learning so don't give up!"
     
     const TEAM_6_CONSULT_RESULT_DATA = {
         right: rightResult,
