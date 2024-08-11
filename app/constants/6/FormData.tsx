@@ -3,7 +3,6 @@ const TEAM_6_FORM_DATA = [
         "1) Your daughter should take around 10 to 13 mL per dose.",
         "2) In general it's recommended to take 3 to 4 doses per day.",
         "3) It's recommended to continue taking ibuprofen even when the period is already over as prevention.",
-        "4. It is okay to take medications containing antihistamines while taking this medication.",
         "4) You can safely take ibuprofen for up to 5 days without talking to a doctor first.",
         "5) If your daughter hasn't eaten yet she can still use ibuprofen without concerns.",
         "6) Children weighing less than 30 kg should not exceed 500 mg (25 mL) per day.",

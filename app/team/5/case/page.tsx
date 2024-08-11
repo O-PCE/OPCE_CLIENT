@@ -804,7 +804,7 @@ export default function Case1() {
         <Wrong 
           text={TEAM_5_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
-            setFlag(66, false);
+            setFlag(70, false);
             setFlag(50, true);
           }}
         />
