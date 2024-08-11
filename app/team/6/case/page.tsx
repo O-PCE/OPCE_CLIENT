@@ -571,8 +571,8 @@ export default function Case1() {
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
-            setFlag(42, false);
-            setFlag(29, true);
+            setFlag(36, false);
+            setFlag(23, true);
           }}
         />
       ) : null}
@@ -587,8 +587,8 @@ export default function Case1() {
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
-            setFlag(43, false);
-            setFlag(30, true);
+            setFlag(37, false);
+            setFlag(24, true);
           }}
         />
       ) : null}
@@ -603,8 +603,8 @@ export default function Case1() {
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
-            setFlag(44, false);
-            setFlag(31, true);
+            setFlag(38, false);
+            setFlag(25, true);
           }}
         />
       ) : null}
@@ -619,8 +619,8 @@ export default function Case1() {
         <Wrong 
           text={TEAM_6_CONSULT_RESULT_DATA.wrong}
           handleClick={() =>{
-            setFlag(45, false);
-            setFlag(32, true);
+            setFlag(39, false);
+            setFlag(26, true);
           }}
         />
       ) : null}
