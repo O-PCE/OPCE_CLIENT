@@ -19,7 +19,7 @@ import TEAM_5_CONSULT_RESULT_DATA from "@/app/constants/5/ConsultData";
 import TEAM_5_FINALRESULT from "@/app/constants/5/FinalResultData";
 import TEAM_5_FORM from "@/app/constants/5/FormData";
 
-import TEAM_5_PRODUCT_CHOOSE_RESULT from "@/app/constants/5/productChooseResult";
+import TEAM_5_PRODUCT_CHOOSE_RESULT from "@/app/constants/5/ProductChooseResult";
 
 import Success from "@/app/components/case/Success";
 import PatientBtn from "@/app/components/case/PatientBtn";
