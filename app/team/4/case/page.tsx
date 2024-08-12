@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, BackBtn, Correct, Wrong, Success, Form, FormCorrect } from '@/app/components';
 import Logo from "@/app/components/global/Logo";
@@ -183,7 +184,7 @@ export default function Case() {
         setFlag(20, true); 
 
       }, 5000);
-    }, 5000);
+    }, 3000);
   }
 
 
@@ -200,7 +201,7 @@ export default function Case() {
         setFlag(20, true); 
 
       }, 5000);
-    }, 5000);
+    }, 3000);
   }
 
 

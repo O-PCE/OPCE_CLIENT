@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+
 import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, BackBtn, Correct, Wrong, Success, Form, FormCorrect } from '@/app/components';
 import Logo from "@/app/components/global/Logo";
@@ -12,7 +14,6 @@ import {
   TEAM_3_PRODUCT,
   TEAM_3_PRODUCT_CHOOSE_RESULT, 
 } from "@/app/constants/3"
-import Link from "next/link";
 
 export default function Case() {
 

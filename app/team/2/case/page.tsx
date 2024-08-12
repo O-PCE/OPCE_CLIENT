@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+
 import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, BackBtn, Correct, Wrong, Success, Form, FormCorrect } from '@/app/components';
 import Logo from "@/app/components/global/Logo";
@@ -254,7 +255,7 @@ export default function Case() {
 
       }, 5000);
 
-    }, 5000);
+    }, 3000);
   }
   const goToFinalResult2 = () => { 
     setFlag(23, false);
@@ -270,7 +271,7 @@ export default function Case() {
 
       }, 5000);
 
-    }, 5000);
+    }, 3000);
   }
   const goToFinalResult3 = () => {    
     setFlag(25, false);
@@ -286,7 +287,7 @@ export default function Case() {
 
       }, 5000);
 
-    }, 5000);
+    }, 3000);
   }
   
   return (
