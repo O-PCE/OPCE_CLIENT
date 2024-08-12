@@ -252,7 +252,7 @@ export default function Case() {
         setFlag(28, false);
         setFlag(31, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -268,7 +268,7 @@ export default function Case() {
         setFlag(29, false);
         setFlag(31, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -284,7 +284,7 @@ export default function Case() {
         setFlag(30, false);
         setFlag(31, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }

@@ -195,7 +195,7 @@ export default function Case() {
         setFlag(18, false);
         setFlag(20, true); 
 
-      }, 3000);
+      }, 5000);
     }, 3000);
   }
 
@@ -212,7 +212,7 @@ export default function Case() {
         setFlag(19, false);
         setFlag(20, true); 
 
-      }, 3000);
+      }, 5000);
     }, 3000);
   }
 

@@ -176,7 +176,7 @@ export default function Case1() {
         setFlag(58, false);
         setFlag(64, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -192,7 +192,7 @@ export default function Case1() {
         setFlag(59, false);
         setFlag(64, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -208,7 +208,7 @@ export default function Case1() {
         setFlag(60, false);
         setFlag(64, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -225,7 +225,7 @@ export default function Case1() {
         setFlag(61, false);
         setFlag(64, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -242,7 +242,7 @@ export default function Case1() {
         setFlag(62, false);
         setFlag(64, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -259,7 +259,7 @@ export default function Case1() {
         setFlag(63, false);
         setFlag(64, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
