@@ -147,7 +147,7 @@ export default function Case1() {
         setFlag(32, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -163,7 +163,7 @@ export default function Case1() {
         setFlag(33, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -179,7 +179,7 @@ export default function Case1() {
         setFlag(34, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -196,7 +196,7 @@ export default function Case1() {
         setFlag(35, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
