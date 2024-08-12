@@ -1,22 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { TextBtn, Question, ProductBtn, Footer } from '../../../components';
-import TEAM_1_PROUDCT from "@/app/constants/1/productData";
-import BackBtn from "@/app/components/case/BackBtn";
-import Correct from "@/app/components/case/Correct";
-import Wrong from "@/app/components/case/Wrong";
-import Form from "@/app/components/case/Form";
-import TEAM_1_FORM from "@/app/constants/1/formData";
-import TEAM_1_CONSULT_RESULT_DATA from "@/app/constants/1/consultData";
-import Logo from "@/app/components/global/Logo";
-import FormCorrect from "@/app/components/case/FormCorrect";
-import TEAM_1_SCRIPT from "@/app/constants/1/scriptData";
-import TEAM_1_productChooseResult from "@/app/constants/1/productChooseResultData";
-import TEAM_1_RESULT_SCRIPT from "@/app/constants/1/resultScriptData";
-import Success from "@/app/components/case/Success";
 import Link from "next/link";
+
+import { useEffect, useState } from "react";
+import { TextBtn, Question, ProductBtn, BackBtn, Correct, Wrong, Success, Form, FormCorrect } from '@/app/components';
+import Logo from "@/app/components/global/Logo";
+
+import { 
+  TEAM_1_FORM, 
+  TEAM_1_CONSULT_RESULT_DATA, 
+  TEAM_1_SCRIPT, 
+  TEAM_1_PRODUCT,
+  TEAM_1_PRODUCT_CHOOSE_RESULT, 
+  TEAM_1_RESULT_SCRIPT 
+} from "@/app/constants/1"
 
 
 export default function Case1() {
@@ -58,7 +56,7 @@ export default function Case1() {
   }
 
   // i = 17 ~ 20
-  for (let i = (idx+1); i < (idx+1) + TEAM_1_PROUDCT.length; i++) {
+  for (let i = (idx+1); i < (idx+1) + TEAM_1_PRODUCT.length; i++) {
     clickHandlers.push(() => {
       setFlag(17, false);  // 약품 선택 페이지
       setFlag(i+1, true);   // flag idx 18~21
@@ -199,7 +197,7 @@ export default function Case1() {
             </span>
           </div>
           <div className="flex flex-row items-center w-full gap-5 justify-between">
-            {TEAM_1_PROUDCT.map((product, index) => (
+            {TEAM_1_PRODUCT.map((product, index) => (
             <div className="shadow-lg opacity-90">
    
               <ProductBtn 
@@ -218,7 +216,7 @@ export default function Case1() {
       ) : null}
       {flags[18] ? (
         <Wrong 
-          text={TEAM_1_productChooseResult[0]} 
+          text={TEAM_1_PRODUCT_CHOOSE_RESULT[0]} 
           handleClick={() => {
             setFlag(18, false);   
             setFlag(17, true);  // 약품 선택 페이지
@@ -233,7 +231,7 @@ export default function Case1() {
         }} 
         />
         <Correct 
-        text={TEAM_1_productChooseResult[1]} 
+        text={TEAM_1_PRODUCT_CHOOSE_RESULT[1]} 
         handleClick={() => {
           setFlag(19,false);
           setFlag(22,true);
@@ -242,7 +240,7 @@ export default function Case1() {
       ) : null}
       {flags[20] ? (
         <Wrong 
-        text={TEAM_1_productChooseResult[2]} 
+        text={TEAM_1_PRODUCT_CHOOSE_RESULT[2]} 
         handleClick={() => {
           setFlag(20, false);   
           setFlag(17, true);  // 약품 선택 페이지
@@ -251,7 +249,7 @@ export default function Case1() {
       ) : null}
       {flags[21] ? (
         <Wrong 
-        text={TEAM_1_productChooseResult[3]} 
+        text={TEAM_1_PRODUCT_CHOOSE_RESULT[3]} 
         handleClick={() => {
           setFlag(21, false);   
           setFlag(17, true);  // 약품 선택 페이지

@@ -13,6 +13,7 @@ import {
   TEAM_4_PRODUCT_CHOOSE_RESULT, 
   TEAM_4_RESULT_SCRIPT 
 } from "@/app/constants/4"
+import Link from "next/link";
 
 export default function Case() {
 
@@ -239,20 +240,36 @@ export default function Case() {
       {/* 의사와 환자와의 대화 */}
       {/* flags[1] ~ flags[2] */}
       {TEAM_4_SCRIPT.map((item, index) => (
+        
+
         flags[index+1] ? (
           <>
-            <BackBtn handleClick = {() => {
-              setFlag(index+1, false);
-              setFlag(index, true);
-            }}/>
-            <Question text={item.question} />
-            {item.answer.map((answer, i) => (
-              <TextBtn
-                key={i}
-                text={answer}
-                handleClick={() => handleClick(index+i)}
-              />
-            ))}
+          {index == 0 ? (
+            <>
+              <Link href={"/team/4/otc-info"} className="fixed left-10 top-10">
+              <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
+                <span className="text-white">Go Back</span>
+              </div>
+              </Link>
+              <Question text={item.question} />
+              <TextBtn text={item.answer[0]} handleClick={() => handleClick(index)} />
+            </>
+          ) : (
+            <>
+              <BackBtn handleClick = {() => {
+                setFlag(index+1, false);
+                setFlag(index, true);
+              }}/>
+              <Question text={item.question} />
+              {item.answer.map((answer, i) => (
+                <TextBtn
+                  key={i}
+                  text={answer}
+                  handleClick={() => handleClick(index+i)}
+                />
+              ))}
+            </>
+          )}
           </>
         ) : null
       ))}
