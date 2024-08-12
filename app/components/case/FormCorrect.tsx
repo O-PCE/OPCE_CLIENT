@@ -15,7 +15,7 @@ function FormCorrect({
 }: FormCorrectProps) {
     return (
       <>
-      <div className="fixed w-full h-screen opacity-30 -z-10" style={gradientStyle}/>
+      <div className="fixed top-0 left-0 w-full h-screen opacity-30 -z-10" style={gradientStyle}/>
       <div className="flex items-center justify-center rounded-md w-[75%] p-2 bg-white opacity-90 -mt-50">
         <span className="text-xl text-gray-500">
           You are all correct! Right patient consult was…

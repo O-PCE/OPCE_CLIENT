@@ -5,14 +5,14 @@ export interface Script {
 
 const TEAM_1_SCRIPT: Script[] = [
     {
-        question: "Me(pharmacist): Hi, how are you? How can I help you?",
+        question: "Me (pharmacist): Hi, how are you? How can I help you?",
         answer: 
         "Patient: I seem to have caught a cold after returning from abroad a few days ago.\n"+
         "I have a headache and high fever.\n"+
         "I am also suffering from a severe cough, runny nose and stuffy nose."
     },
     {
-        question: "Me(pharmacist): Okay, who will be taking the medicine?",
+        question: "Me (pharmacist): Okay, who will be taking the medicine?",
         answer:"Patient: Me and I am 34 years old."
     },
     {
