@@ -130,7 +130,7 @@ export default function Case1() {
         
       }, 5000);
       
-    }, 3000);
+    }, 5000);
     
   }
   

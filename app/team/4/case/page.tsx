@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, BackBtn, Correct, Wrong, Success, Form, FormCorrect } from '@/app/components';
 import Logo from "@/app/components/global/Logo";
 
@@ -13,7 +14,7 @@ import {
   TEAM_4_PRODUCT_CHOOSE_RESULT, 
   TEAM_4_RESULT_SCRIPT 
 } from "@/app/constants/4"
-import Link from "next/link";
+
 
 export default function Case() {
 
@@ -54,23 +55,15 @@ export default function Case() {
     });
   }
 
-  // const timeoutRef = useRef<number | null>(null);
   for (let i = 3; i <= 4; i++) {
-    clickHandlers.push(() => {
-    // 기존 타이머가 있다면 취소
-    // if (timeoutRef.current !== null) {
-    //   clearTimeout(timeoutRef.current);
-    // }
-    // 새로운 타이머 설정
-    
+    clickHandlers.push(() => {    
       setFlag(2, false); // patient case 선택 페이지
       setFlag(21, true);
 
       setTimeout(() => {
         setFlag(21, false);
         setFlag(i, true);  // flag idx 3~4
-        // timeoutRef.current = null; // 타이머 완료 후 리셋
-      }, 3000);
+      }, 6000);
    
     });
   }
@@ -137,12 +130,6 @@ export default function Case() {
   // script back button
   for (let i = 1; i <= clickHandlers.length ; i++) {
     backBtnHandlers.push(() => {
-      // 타이머가 설정되어 있으면 취소
-    // if (timeoutRef.current !== null) {
-    //   clearTimeout(timeoutRef.current);
-    //   timeoutRef.current = null; // 타이머 리셋
-    // }
-
       setFlag(i, false);
       setFlag(i-1, true);
     });
@@ -195,8 +182,8 @@ export default function Case() {
         setFlag(18, false);
         setFlag(20, true); 
 
-      }, 3000);
-    }, 3000);
+      }, 5000);
+    }, 5000);
   }
 
 
@@ -212,8 +199,8 @@ export default function Case() {
         setFlag(19, false);
         setFlag(20, true); 
 
-      }, 3000);
-    }, 3000);
+      }, 5000);
+    }, 5000);
   }
 
 
@@ -420,14 +407,20 @@ export default function Case() {
 
       {/* case 1 Correct, Wrong */}
       {flags[13] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(13, false);
+          setFlag(11, true);
+        }}/>
         <FormCorrect
           text = {TEAM_4_CONSULT_RESULT_DATA.right[0]}
           handleClick={goToFinalResult1} // to flag 28
         />
+        </>
       ) : null}
      {flags[14] ? (
         <Wrong 
-          text={TEAM_4_CONSULT_RESULT_DATA.wrong[0]} 
+          text={TEAM_4_CONSULT_RESULT_DATA.wrong} 
           handleClick={() => {
             setFlag(14, false);   
             setFlag(11, true);  // case 1 patient consult 페이지
@@ -437,14 +430,20 @@ export default function Case() {
 
       {/* case 2 Correct, Wrong */}
       {flags[15] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(15, false);
+          setFlag(12, true);
+        }}/>
         <FormCorrect
           text = {TEAM_4_CONSULT_RESULT_DATA.right[1]}
           handleClick={goToFinalResult2} // to flag 29
         />
+            </>
       ) : null}
       {flags[16] ? (
         <Wrong 
-          text={TEAM_4_CONSULT_RESULT_DATA.wrong[1]} 
+          text={TEAM_4_CONSULT_RESULT_DATA.wrong} 
           handleClick={() => {
             setFlag(16, false);   
             setFlag(12, true);  // case 2 patient consult 페이지

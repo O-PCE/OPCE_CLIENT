@@ -252,9 +252,9 @@ export default function Case() {
         setFlag(28, false);
         setFlag(31, true); 
 
-      }, 3000);
+      }, 5000);
 
-    }, 3000);
+    }, 5000);
   }
   const goToFinalResult2 = () => { 
     setFlag(23, false);
@@ -268,9 +268,9 @@ export default function Case() {
         setFlag(29, false);
         setFlag(31, true); 
 
-      }, 3000);
+      }, 5000);
 
-    }, 3000);
+    }, 5000);
   }
   const goToFinalResult3 = () => {    
     setFlag(25, false);
@@ -284,9 +284,9 @@ export default function Case() {
         setFlag(30, false);
         setFlag(31, true); 
 
-      }, 3000);
+      }, 5000);
 
-    }, 3000);
+    }, 5000);
   }
   
   return (
