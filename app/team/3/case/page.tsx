@@ -180,6 +180,10 @@ export default function Case() {
       ))}
       {flags[4] ? (
         <div className="flex flex-col items-center justify-center -mt-10">
+          <BackBtn handleClick = {() => {
+            setFlag(4, false);
+            setFlag(3, true);
+          }}/>
           <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
             <span className="text-xl text-gray-500">
               Choose the best treatment options.
@@ -205,6 +209,11 @@ export default function Case() {
 
 
       {flags[5] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(5, false);
+          setFlag(4, true);
+        }}/>
         <Correct 
           text={TEAM_3_PRODUCT_CHOOSE_RESULT[0]} 
           handleClick={() => {
@@ -212,8 +221,14 @@ export default function Case() {
             setFlag(13, true);  // patient consult 페이지
           }}
         />
+        </>
       ) : null}
       {flags[6] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(6, false);
+          setFlag(4, true);
+        }}/>
         <Correct 
           text={TEAM_3_PRODUCT_CHOOSE_RESULT[1]} 
           handleClick={() => {
@@ -221,6 +236,7 @@ export default function Case() {
             setFlag(10, true);  // patient consult 페이지
           }}
         />
+        </>
       ) : null}
       {flags[7] ? (
         <Wrong 
@@ -253,12 +269,18 @@ export default function Case() {
 
       {/* Go to patient consult 1 */}
       {flags[10] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(10, false);
+          setFlag(6, true);
+        }}/>
         <Form
            formData={TEAM_3_FORM.data[0]}
            selectedItems={selectedItems1}
            handleSubmit={handleSubmit1}
            setSelectedItems={setSelectedItems1}
         />
+        </>
       ) : null}
 
 
@@ -284,12 +306,18 @@ export default function Case() {
 
       {/* Go to patient consult 2 */}
       {flags[13] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(13, false);
+          setFlag(5, true);
+        }}/>
         <Form
            formData={TEAM_3_FORM.data[1]}
            selectedItems={selectedItems2}
            handleSubmit={handleSubmit2}
            setSelectedItems={setSelectedItems2}
         />
+        </>
       ) : null}
 
       {/* case 2 Correct, Wrong */}
