@@ -16,11 +16,12 @@ import TEAM_1_SCRIPT from "@/app/constants/1/scriptData";
 import TEAM_1_productChooseResult from "@/app/constants/1/productChooseResultData";
 import TEAM_1_RESULT_SCRIPT from "@/app/constants/1/resultScriptData";
 import Success from "@/app/components/case/Success";
+import Link from "next/link";
 
 
 export default function Case1() {
 
-  const array = new Array(46).fill(false);
+  const array = new Array(30).fill(false);
   const newArray = [true, ...array];
   const [flags, setFlags] = useState(newArray);
 
@@ -125,11 +126,11 @@ export default function Case1() {
           setTimeout(() => {
             setFlag(28, false);
             setFlag(29, true); 
-          }, 3000);
+          }, 5000);
 
-        }, 3000);
+        }, 5000);
         
-      }, 3000);
+      }, 5000);
       
     }, 3000);
     
@@ -160,24 +161,44 @@ export default function Case1() {
       {TEAM_1_SCRIPT.map((item, index) => (
         flags[index+1] ? (
           <>
-            <BackBtn handleClick = {() => handleBackBtn(index)}/>
-            <Question text={item.question} />
-            <TextBtn
-              text={item.answer}
-              handleClick={() => handleClick(index)}
-            />
+            {/* index가 0일 경우 */}
+            {index == 0 ? (
+              <>
+                <Link href={"/team/1/otc-info"} className="fixed left-10 top-10">
+                <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
+                  <span className="text-white">Go Back</span>
+                </div>
+                </Link>
+                <Question text={item.question} />
+                <TextBtn text={item.answer} handleClick={() => handleClick(index)} />
+              </>
+
+            ) : (
+              <>
+                {/* index가 0이 아닐 경우에 보여주는 기본 컴포넌트들 */}
+                <BackBtn handleClick={() => handleBackBtn(index)} />
+                <Question text={item.question} />
+                <TextBtn text={item.answer} handleClick={() => handleClick(index)} />
+              </>
+            )}
           </>
         ) : null
       ))}
+      
 
       {flags[17] ? (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center -mt-10">
+          <BackBtn handleClick={() => {
+            setFlag(17,false);
+            setFlag(16,true);
+          }} 
+          />
           <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-10">
             <span className="text-xl text-gray-500">
               Choose the best treatment options.
             </span>
           </div>
-          <div className="flex flex-row items-center w-full gap-5 justify-between mt-14">
+          <div className="flex flex-row items-center w-full gap-5 justify-between">
             {TEAM_1_PROUDCT.map((product, index) => (
             <div className="shadow-lg opacity-90">
    
@@ -205,12 +226,19 @@ export default function Case1() {
         />
       ) : null}
       {flags[19] ? (
+        <>
+        <BackBtn handleClick={() => {
+          setFlag(19,false);
+          setFlag(17,true);
+        }} 
+        />
         <Correct 
         text={TEAM_1_productChooseResult[1]} 
         handleClick={() => {
           setFlag(19,false);
           setFlag(22,true);
         }}/>
+        </>
       ) : null}
       {flags[20] ? (
         <Wrong 
@@ -233,18 +261,32 @@ export default function Case1() {
 
       {/* Go to patient consult */}
       {flags[22] ? (
+        <>
+        <BackBtn handleClick={() => {
+          setFlag(22,false);
+          setFlag(19,true);
+        }} 
+        />
         <Form
            formData={TEAM_1_FORM.data}
            selectedItems={selectedItems}
            handleSubmit={handleSubmit}
            setSelectedItems={setSelectedItems}
         />
+        </>
       ) : null}
       {flags[23] ? (
+        <>
         <FormCorrect
           text = {TEAM_1_CONSULT_RESULT_DATA.right}
           handleClick={goToFinalResult}
         />
+        <BackBtn handleClick={() => {
+          setFlag(23,false);
+          setFlag(22,true);
+        }} 
+        />
+         </>
       ) : null}
      {flags[24] ? (
         <Wrong 

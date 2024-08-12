@@ -34,7 +34,7 @@ function Info({
           <span className="text-white">Go Back to Main Page</span>
         </div>
       </Link>
-      <div>
+      <div className="mb-10">
         <div className="flex flex-row items-center gap-2 w-[50vw]">
           <span className="text-5xl font-semibold text-[#18063c]">
             OTC Information
@@ -58,7 +58,7 @@ function Info({
 
 
       {/* 각 약품을 for 문으로 */}
-      <div className="flex flex-row w-[75%] justify-between mt-5">
+      <div className="flex flex-row w-[75%] justify-between">
         {products.map((product, index) => (
           <Product
             key={index}

@@ -16,7 +16,7 @@ const TEAM_1_productChooseResult = [
   ,
   "Coldaewon Kidsfen Syrup is mainly used to reduce fever\n and might not cover all the patients’ symptoms such as coughing, runny and stuffy nose."
   ,
-  "Coldaewon Kids Ibufen Syrup contains ibuprofen which is unsuitable to take together with dexibuprofen(dental medication),\nresulting in the overdose of NSAIDs."
+  "Coldaewon Kids Ibufen Syrup contains ibuprofen which is unsuitable to take together with dexibuprofen(dental medication), resulting in the overdose of NSAIDs."
 
 ]
 

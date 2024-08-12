@@ -20,7 +20,7 @@ function ProductBtn({
 }: ProductBtnProps){
     return (
         <button onClick={handleClick} className="flex flex-col items-center">
-            <div className="flex flex-col h-[430px] bg-white px-8 py-4 rounded-lg shadow-lg">
+            <div className="flex flex-col min-h-[400px] bg-white px-4 py-4 rounded-lg shadow-lg mt-2">
                 <Product 
                 src ={ src } 
                 alt = { alt } 
