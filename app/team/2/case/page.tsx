@@ -254,7 +254,7 @@ export default function Case() {
 
       }, 5000);
 
-    }, 3000);
+    }, 5000);
   }
   const goToFinalResult2 = () => { 
     setFlag(23, false);
@@ -270,7 +270,7 @@ export default function Case() {
 
       }, 5000);
 
-    }, 3000);
+    }, 5000);
   }
   const goToFinalResult3 = () => {    
     setFlag(25, false);
@@ -286,7 +286,7 @@ export default function Case() {
 
       }, 5000);
 
-    }, 3000);
+    }, 5000);
   }
   
   return (
