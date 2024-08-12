@@ -21,7 +21,7 @@ const TEAM_1_SCRIPT: Script[] = [
     },
     {
         question: "Me (pharmacist): Could you explain your symptoms in more detail?",
-        answer: "Patient: I measured my body temperature in the morning and it was 37.9 degrees celsius. I have a stabbing pain in my head. I have both a runny and stuffy nose. I also have a wet cough."
+        answer: "Patient: I measured my body temperature in the morning and it was 37.9 degrees celsius.\nI have a stabbing pain in my head. I have both a runny and stuffy nose. I also have a wet cough."
     },
     {
         question: "Me (pharmacist): When did your symptoms start?",
@@ -49,7 +49,7 @@ const TEAM_1_SCRIPT: Script[] = [
     },
     {
         question: "Me (pharmacist) : Do you either drink or smoke?",
-        answer: "Patient : Not really. I only drink a glass of beer once a week. And I have never smoked before."
+        answer: "Patient : Not really. I only drink a glass of beer once a week.\nAnd I have never smoked before."
     },
     {
         question: "Me (pharmacist) : Then do you have meals regularly? And do you drink enough water?",
@@ -57,15 +57,15 @@ const TEAM_1_SCRIPT: Script[] = [
     },
     {
         question: "Me (pharmacist) : What do you do?",
-        answer: "Patient : I am a teacher at Daewon Middle School. I spend most of the time standing. That is the hardest part for me."
+        answer: "Patient : I am a teacher at Daewon Middle School.\nI spend most of the time standing. That is the hardest part for me."
     },
     {
         question: "Me (pharmacist) : Oh, I am sorry to hear that. Do you live with anyone?",
-        answer: "Patient : I live with my husband and my two sons. They are each 38 months and 5 months old. I am worried that my sons might catch my cold, since they are so little. "
+        answer: "Patient : I live with my husband and my two sons. They are each 38 months and 5 months old.\nI am worried that my sons might catch my cold, since they are so little. "
     },
     {
         question: "Me (pharmacist) : Are there any other things I should know of?",
-        answer: "Patient : I prefer drugs without caffeine. I do not like caffeine because I cannot get good quality sleep at night."
+        answer: "Patient : I prefer drugs without caffeine.\nI do not like caffeine because I cannot get good quality sleep at night."
     },
     {
         question: "Me (pharmacist) : Okay. There is not that much caffeine in cold medications that might disturb your sleep, but I will try to find one without caffeine for you.",
