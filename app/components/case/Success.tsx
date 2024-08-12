@@ -22,7 +22,7 @@ function Success() {
             className="mt-8"
           />
           <Link href="/" className="mt-10">
-            <div className="bg-gray-400 rounded-full shadow-xl px-8 py-2">
+            <div className="bg-[#5BC17F] rounded-full shadow-xl px-8 py-2">
               <span className="text-white">Go to Select Another Case</span>
             </div>
           </Link>
