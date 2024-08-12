@@ -19,8 +19,8 @@ const TEAM_5_PATIENT = [
       "She is now taking ibuprofen to relieve cold-induced pain.",
   },
   {
-    patient: "My daughter, and she's 4 years old.\n"+
-      "She has a bad cough and sore throat.",
+    patient: "My wife who's 30 years old and is in the last 3 months of pregnancy.\n"+
+      "She exercised vigorously in cold weather and caught a cold. She has a fever along with muscle pain and sprain.",
   }
 ];
 

@@ -147,7 +147,7 @@ export default function Case1() {
         setFlag(32, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -163,7 +163,7 @@ export default function Case1() {
         setFlag(33, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -179,7 +179,7 @@ export default function Case1() {
         setFlag(34, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -196,7 +196,7 @@ export default function Case1() {
         setFlag(35, false);
         setFlag(40, true); 
 
-      }, 3000);
+      }, 5000);
 
     }, 3000);
   }
@@ -363,7 +363,7 @@ export default function Case1() {
         <div className="flex flex-col items-center justify-center rounded-md w-[50%] gap-3">
           <BackBtn handleClick = {() => handleBackBtn(1)}/>
           <div className="flex flex-col items-center justify-center rounded-md w-3/5 h-14 bg-white opacity-90 mb-8">
-            <span className="text-xl font-bold text-gray-500">
+            <span className="text-xl text-gray-500">
             Me (pharmacist) : Of course, but may I ask who the medicine is for and what exactly is causing the pain?
             </span>
           </div>
