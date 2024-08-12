@@ -197,7 +197,7 @@ export default function Case1() {
       ) : null}
       {flags[18] ? (
         <Wrong 
-          text={TEAM_1_productChooseResult[1]} 
+          text={TEAM_1_productChooseResult[0]} 
           handleClick={() => {
             setFlag(18, false);   
             setFlag(17, true);  // 약품 선택 페이지
@@ -206,7 +206,7 @@ export default function Case1() {
       ) : null}
       {flags[19] ? (
         <Correct 
-        text={TEAM_1_productChooseResult[0]} 
+        text={TEAM_1_productChooseResult[1]} 
         handleClick={() => {
           setFlag(19,false);
           setFlag(22,true);
@@ -223,7 +223,7 @@ export default function Case1() {
       ) : null}
       {flags[21] ? (
         <Wrong 
-        text={TEAM_1_productChooseResult[2]} 
+        text={TEAM_1_productChooseResult[3]} 
         handleClick={() => {
           setFlag(21, false);   
           setFlag(17, true);  // 약품 선택 페이지
