@@ -38,7 +38,7 @@ const TEAM_2_PROUDCT = [
     },
     {
       src: '/Coldaewon-Kids-Cough-Syrup.png',
-      alt: 'product-C',
+      alt: 'product-D',
       name: 'Coldaewon Kids Cough Syrup',
       ingredient: 
         'Pentoxiberin citrate 2.5 mg (antitussive)\n'+

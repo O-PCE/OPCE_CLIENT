@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { TextBtn, Question, ProductBtn, BackBtn, Correct, Wrong, Success, Form, FormCorrect } from '@/app/components';
 import Logo from "@/app/components/global/Logo";
@@ -13,6 +14,7 @@ import {
   TEAM_2_PRODUCT_CHOOSE_RESULT, 
   TEAM_2_RESULT_SCRIPT 
 } from "@/app/constants/2"
+
 
 export default function Case() {
 
@@ -312,18 +314,34 @@ export default function Case() {
       {TEAM_2_SCRIPT.map((item, index) => (
         flags[index+1] ? (
           <>
-            <BackBtn handleClick = {() => {
-              setFlag(index+1, false);
-              setFlag(index, true);
-            }}/>
-            <Question text={item.question} />
-            {item.answer.map((answer, i) => (
-              <TextBtn
-                key={i}
-                text={answer}
-                handleClick={() => handleClick(index+i)}
-              />
-            ))}
+          {index == 0 ? (
+              <>
+                <Link href={"/team/2/otc-info"} className="fixed left-10 top-10">
+                <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
+                  <span className="text-white">Go Back</span>
+                </div>
+                </Link>
+                <Question text={item.question} />
+                <TextBtn text={item.answer[0]} handleClick={() => handleClick(index)} />
+              </>
+
+            ) : (
+              <>
+                <BackBtn handleClick = {() => {
+                  setFlag(index+1, false);
+                  setFlag(index, true);
+                }}/>
+                <Question text={item.question} />
+                {item.answer.map((answer, i) => (
+                  <TextBtn
+                    key={i}
+                    text={answer}
+                    handleClick={() => handleClick(index+i)}
+                  />
+                ))}
+              </>
+            )}
+            
           </>
         ) : null
       ))}
@@ -386,6 +404,11 @@ export default function Case() {
         />
       ) : null}
       {flags[9] ? (
+        <>
+        <BackBtn handleClick = {() => {
+            setFlag(9, false);
+            setFlag(3, true);
+          }}/>
         <Correct 
           text={TEAM_2_PRODUCT_CHOOSE_RESULT[0][3]} 
           handleClick={() => {
@@ -393,6 +416,7 @@ export default function Case() {
             setFlag(18, true);  // patient case 1 -> patient consult [flag = 18]
           }}
         />
+        </>
       ) : null}
       {/* patient case 2 */}
       {flags[10] ? (
@@ -414,6 +438,12 @@ export default function Case() {
         />
       ) : null}
       {flags[12] ? (
+        <>
+         <BackBtn handleClick = {() => {
+            setFlag(12, false);
+            setFlag(19, true);
+          }}/>
+        
         <Correct 
           text={TEAM_2_PRODUCT_CHOOSE_RESULT[1][2]} 
           handleClick={() => {
@@ -421,6 +451,7 @@ export default function Case() {
             setFlag(19, true);  // patient case 2 -> patient consult [flag = 19]
           }}
         />
+        </>
       ) : null}
       {flags[13] ? (
         <Wrong 
@@ -441,13 +472,20 @@ export default function Case() {
         }}/>
       ) : null}
       {flags[15] ? (
+        <>
+        <BackBtn handleClick = {() => {
+            setFlag(15, false);
+            setFlag(20, true);
+          }}/>
+        
         <Correct 
         text={TEAM_2_PRODUCT_CHOOSE_RESULT[2][1]} 
         handleClick={() => {
           setFlag(15, false);   
           setFlag(20, true);  // patient case 3 -> patient consult [flag = 20]
         }}
-      />
+        />
+        </>
       ) : null}
       {flags[16] ? (
         <Wrong 
@@ -471,40 +509,66 @@ export default function Case() {
       {/* Go to patient consult */}
       {/* case 1 */}
       {flags[18] ? (
+        <>
+        <BackBtn handleClick = {() => {
+            setFlag(18, false);
+            setFlag(9, true);
+          }}/>
+        
         <Form
            formData={TEAM_2_FORM.data[0]}
            selectedItems={selectedItems1}
            handleSubmit={handleSubmit1}
            setSelectedItems={setSelectedItems1}
         />
+        </>
       ) : null}
 
       {/* case 2 */}
       {flags[19] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(19, false);
+          setFlag(12, true);
+        }}/>
         <Form
            formData={TEAM_2_FORM.data[1]}
            selectedItems={selectedItems2}
            handleSubmit={handleSubmit2}
            setSelectedItems={setSelectedItems2}
         />
+        </>
       ) : null}
 
       {/* case 3 */}
       {flags[20] ? (
+        <>
+        <BackBtn handleClick = {() => {
+            setFlag(20, false);
+            setFlag(15, true);
+          }}/>
+        
         <Form
            formData={TEAM_2_FORM.data[2]}
            selectedItems={selectedItems3}
            handleSubmit={handleSubmit3}
            setSelectedItems={setSelectedItems3}
         />
+        </>
       ) : null}
 
       {/* case 1 Correct, Wrong */}
       {flags[21] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(21, false);
+          setFlag(18, true);
+        }}/>
         <FormCorrect
           text = {TEAM_2_CONSULT_RESULT_DATA.right[0]}
           handleClick={goToFinalResult1} // to flag 28
         />
+        </>
       ) : null}
      {flags[22] ? (
         <Wrong 
@@ -518,10 +582,16 @@ export default function Case() {
 
       {/* case 2 Correct, Wrong */}
       {flags[23] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(23, false);
+          setFlag(19, true);
+        }}/>
         <FormCorrect
           text = {TEAM_2_CONSULT_RESULT_DATA.right[1]}
           handleClick={goToFinalResult2} // to flag 29
         />
+            </>
       ) : null}
       {flags[24] ? (
         <Wrong 
@@ -535,10 +605,16 @@ export default function Case() {
 
       {/* case 3 Correct, Wrong */}
       {flags[25] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(25, false);
+          setFlag(20, true);
+        }}/>
         <FormCorrect
           text = {TEAM_2_CONSULT_RESULT_DATA.right[2]}
           handleClick={goToFinalResult3} // to flag 30
         />
+        </>
       ) : null}
       {flags[26] ? (
         <Wrong 

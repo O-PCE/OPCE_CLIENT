@@ -1,4 +1,4 @@
-const TEAM_1_productChooseResult = [
+const TEAM_1_PRODUCT_CHOOSE_RESULT = [
     
     "Coldaewon Cold-Q Syrup includes caffeine anhydride which the patient does not prefer.\n"+
     "In addition, caffeine anhydride inhibits iron absorption when taking iron supplements.\n"+
@@ -20,4 +20,4 @@ const TEAM_1_productChooseResult = [
 
 ]
 
-export default TEAM_1_productChooseResult;
+export default TEAM_1_PRODUCT_CHOOSE_RESULT;

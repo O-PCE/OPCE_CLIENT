@@ -1,4 +1,4 @@
-const TEAM_1_PROUDCT = [
+const TEAM_1_PRODUCT = [
     {
       src: '/Coldaewon-Cold-Q-Syrup.png',
       alt: 'product-A',
@@ -42,4 +42,4 @@ const TEAM_1_PROUDCT = [
     }
 ];
 
-export default TEAM_1_PROUDCT;
+export default TEAM_1_PRODUCT;

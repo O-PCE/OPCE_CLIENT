@@ -11,8 +11,8 @@ import {
   TEAM_3_SCRIPT, 
   TEAM_3_PRODUCT,
   TEAM_3_PRODUCT_CHOOSE_RESULT, 
-  TEAM_3_RESULT_SCRIPT 
 } from "@/app/constants/3"
+import Link from "next/link";
 
 export default function Case() {
 
@@ -122,23 +122,6 @@ export default function Case() {
     }
   };
 
-  const goToFinalResult = () => {    
-    setFlag(21, false);
-    setFlag(27, true); 
-    
-    setTimeout(() => {
-      setFlag(27, false);
-      setFlag(28, true); 
-
-      setTimeout(() => {
-        setFlag(28, false);
-        setFlag(31, true); 
-
-      }, 3000);
-
-    }, 3000);
-  }
-
   
   return (
     
@@ -165,16 +148,30 @@ export default function Case() {
       {TEAM_3_SCRIPT.map((item, index) => (
         flags[index+1] ? (
           <>
-            <BackBtn handleClick = {() => {
-              setFlag(index+1, false);
-              setFlag(index, true);
-            }}/>
-            <Question text={item.question} />
-            <TextBtn
-              text={item.answer}
-              handleClick={() => handleClick(index)}
-            />
-           
+          {index == 0 ? (
+            <>
+              <Link href={"/team/3/otc-info"} className="fixed left-10 top-10">
+              <div className="bg-[#5BC17F] px-5 py-2 rounded-full">
+                <span className="text-white">Go Back</span>
+              </div>
+              </Link>
+              <Question text={item.question} />
+              <TextBtn text={item.answer} handleClick={() => handleClick(index)} />
+            </>
+
+            ) : (
+              <>
+                <BackBtn handleClick = {() => {
+                  setFlag(index+1, false);
+                  setFlag(index, true);
+                }}/>
+                <Question text={item.question} />
+                <TextBtn
+                  text={item.answer}
+                  handleClick={() => handleClick(index)}
+                />
+              </>
+            )}
           </>
         ) : null
       ))}
@@ -284,8 +281,13 @@ export default function Case() {
       ) : null}
 
 
-      {/* Correct, Wrong */}
+      {/* case 1 Correct, Wrong */}
       {flags[11] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(11, false);
+          setFlag(10, true);  // case 1 patient consult 페이지
+        }}/>
         <FormCorrect
           text = {TEAM_3_CONSULT_RESULT_DATA.right[0]}
           handleClick={() => {
@@ -293,6 +295,7 @@ export default function Case() {
             setFlag(16, true);  // success 페이지
           }} 
         />
+        </>
       ) : null}
      {flags[12] ? (
         <Wrong 
@@ -322,6 +325,11 @@ export default function Case() {
 
       {/* case 2 Correct, Wrong */}
       {flags[14] ? (
+        <>
+        <BackBtn handleClick = {() => {
+          setFlag(14, false);
+          setFlag(13, true);  // patient consult 페이지
+        }}/>
         <FormCorrect
           text = {TEAM_3_CONSULT_RESULT_DATA.right[1]}
           handleClick={() => {
@@ -329,6 +337,7 @@ export default function Case() {
             setFlag(16, true);  // success 페이지
           }}
         />
+        </>
       ) : null}
       {flags[15] ? (
         <Wrong 
