@@ -425,7 +425,7 @@ export default function Case() {
           text={TEAM_2_PRODUCT_CHOOSE_RESULT[1][0]} 
           handleClick={() => {
             setFlag(10, false);   
-            setFlag(3, true);  // 약품 선택 페이지
+            setFlag(4, true);  // 약품 선택 페이지 case2
           }}
         />
       ) : null}
@@ -434,7 +434,7 @@ export default function Case() {
           text={TEAM_2_PRODUCT_CHOOSE_RESULT[1][1]} 
           handleClick={() => {
             setFlag(11, false);   
-            setFlag(3, true);  // 약품 선택 페이지
+            setFlag(4, true);  // 약품 선택 페이지 case2
           }}
         />
       ) : null}
@@ -442,7 +442,7 @@ export default function Case() {
         <>
          <BackBtn handleClick = {() => {
             setFlag(12, false);
-            setFlag(19, true);
+            setFlag(4, true);
           }}/>
         
         <Correct 
@@ -459,7 +459,7 @@ export default function Case() {
           text={TEAM_2_PRODUCT_CHOOSE_RESULT[1][3]} 
           handleClick={() => {
             setFlag(13, false);   
-            setFlag(3, true);  // 약품 선택 페이지
+            setFlag(4, true);  // 약품 선택 페이지 case2
           }}
         />
       ) : null}
@@ -469,14 +469,14 @@ export default function Case() {
         text={TEAM_2_PRODUCT_CHOOSE_RESULT[2][0]} 
         handleClick={() => {
           setFlag(14,false);
-          setFlag(3,true);  // 약품 선택 페이지
+          setFlag(5,true);  // 약품 선택 페이지
         }}/>
       ) : null}
       {flags[15] ? (
         <>
         <BackBtn handleClick = {() => {
             setFlag(15, false);
-            setFlag(20, true);
+            setFlag(5, true);
           }}/>
         
         <Correct 
@@ -493,7 +493,7 @@ export default function Case() {
         text={TEAM_2_PRODUCT_CHOOSE_RESULT[2][2]} 
         handleClick={() => {
           setFlag(16, false);   
-          setFlag(3, true);  // 약품 선택 페이지
+          setFlag(5, true);  // 약품 선택 페이지
         }}
       />
       ) : null}
@@ -502,7 +502,7 @@ export default function Case() {
         text={TEAM_2_PRODUCT_CHOOSE_RESULT[2][3]} 
         handleClick={() => {
           setFlag(17, false);   
-          setFlag(3, true);  // 약품 선택 페이지
+          setFlag(5, true);  // 약품 선택 페이지
         }}
       />
       ) : null}
